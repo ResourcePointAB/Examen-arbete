@@ -1,0 +1,26 @@
+﻿# Ignorera node_modules i alla mappar
+node_modules/
+
+# Ignorera miljövariabler
+.env
+.env.local
+.env.development
+.env.production
+
+# Ignorera loggfiler
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorera byggfiler
+dist/
+build/
+
+# Ignorera cachefiler
+.DS_Store
+Thumbs.db
+
+# Ignorera IDE/editor-filer
+.vscode/
+.idea/
+*.swp
