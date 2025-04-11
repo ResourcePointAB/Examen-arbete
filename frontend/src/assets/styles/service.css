@@ -1,0 +1,172 @@
+.service-hero {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.service-1 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.highlight {
+  font-size: 3rem;
+  color: #e3cd24;
+  display: block;
+}
+
+/* Header Section */
+.service-header {
+  background: url('/images/service-bg.jpg') no-repeat center center/cover;
+  height: 400px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.service-header h1 {
+  font-size: 3rem;
+}
+
+.service-bg h2 {
+  font-size: 2rem;
+  color: #0f0e0e;
+}
+
+.service-bg Button {
+  margin-top: 20px;
+  background-color: #e3cd24;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.service-bg Button:hover {
+  background-color: #d0b020;
+}
+
+/* Carousel Section */
+.carousel-container {
+  padding: 50px 0;
+}
+
+.service-box{
+  border: solid 1px #e3cd24;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.service-box h3 {
+  margin-top: 15px;
+  font-size: 1.5rem;
+}
+
+.service-box p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.service-box a {
+  text-decoration: none;
+  color: #e3cd24;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.service-box a:hover {
+  text-decoration: underline;
+}
+
+/* Info Box Section */
+.info-box {
+  width: 30%;
+  text-align: center;
+  padding: 30px;
+  border: solid 1px #e3cd24;
+}
+
+.info-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.info-box h3 {
+  font-size: 1.75rem;
+}
+
+.info-box p {
+  font-size: 1rem;
+  color: #777;
+}
+
+.info-box a {
+  color: #e3cd24;
+  font-weight: bold;
+}
+
+.info-box a:hover {
+  text-decoration: underline;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.cta-section Button {
+  font-size: 1.2rem;
+  padding: 10px 30px;
+}
+
+/* Stats Section */
+.stats-section {
+  background: #333;
+  color: white;
+  padding: 50px 20px;
+}
+
+.stats-text h2 {
+  font-size: 1.75rem;
+  margin-bottom: 30px;
+}
+
+.stat-bar {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.stat-bar span {
+  font-size: 1rem;
+  color: white;
+}

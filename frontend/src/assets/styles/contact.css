@@ -1,0 +1,78 @@
+.contact-hero{
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;  
+}
+
+.contact_map {
+    width: 100%; /* Fyll hela bredden */
+    height: 500px; /* Gör kartan högre */
+    margin-top: 30px;
+  }
+  
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  /* Här kan du lägga till all din kontaktformulär CSS */
+  .contact_form {
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  .contact_form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .contact_form .form-control {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .contact_form .btn {
+    background-color: #fc5633;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .contact_form .btn:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  .common_btn {
+    background-color: #fc5633;
+    color: white;
+  }
+  
+  .contact_form .btn:hover {
+    background-color: #e84e2d;
+  }
+  
+  /* Justera etiketter och input-fält om det behövs */
+  .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .contact-hero {
+    padding: 50px 0;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  

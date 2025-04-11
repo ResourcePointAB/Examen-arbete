@@ -1,0 +1,23 @@
+.about-hero {
+    position: relative;
+    width: 100vw;;
+    height: 70vh; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .wave {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+  }
+  

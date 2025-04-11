@@ -41,6 +41,7 @@ const insertPositionData = async () => {
 };
 
 const initDB = async () => {
+  console.log('Initializing database...');
   await createPositionsTable();
   await insertPositionData();
 };

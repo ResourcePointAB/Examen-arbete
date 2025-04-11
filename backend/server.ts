@@ -1,103 +1,155 @@
 import express, { Request, Response } from 'express';
-import bodyParser from 'body-parser';
-import dbPromise from './db.config'; 
+import cors from 'cors';
+import multer from 'multer';
 import nodemailer from 'nodemailer';
+import fs from 'fs';
+import path from 'path';
+import dbPromise from './db.config';  
 
 const app = express();
-app.use(bodyParser.json());
+const PORT = process.env.PORT || 5000;
 
-const createPositionsTable = async () => {
-  const db = await dbPromise;
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-  await db.run(`
-    CREATE TABLE IF NOT EXISTS positions (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      title TEXT NOT NULL,
-      department TEXT,
-      location TEXT,
-      description TEXT,
-      applicationDeadline DATE,
-      salary INTEGER
-    )
-  `);
+// -------- Skapa 'database'-mappen om den inte finns --------
+const dbDirectory = path.join(__dirname, 'database');
 
-  console.log('Positions table created or already exists.');
-};
+if (!fs.existsSync(dbDirectory)) {
+  fs.mkdirSync(dbDirectory);
+}
 
-// API för att hämta alla positioner
-app.get('/positions', async (req: Request, res: Response) => {
+// -------- Multer: för CV-uppladdningar --------
+const uploadDir = path.join(__dirname, 'uploads');
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir);
+    }
+    cb(null, uploadDir);
+  },
+  filename: (req, file, cb) => {
+    const timestamp = Date.now();
+    const uniqueFileName = `${timestamp}-${file.originalname}`;
+    cb(null, uniqueFileName);
+  },
+});
+
+const upload = multer({ storage });
+
+// -------- Ansökningsdata-typ --------
+interface ApplicationData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  city: string;
+  phone: number;
+  experiences?: string;
+  education?: string;
+  message?: string;
+  cvPath: string;
+}
+
+// -------- Nodemailer-konfiguration --------
+// Byt till din egen e-post och "App Password" från Gmail
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'din.email@gmail.com',
+    pass: 'ditt-app-losenord',
+  },
+});
+
+// -------- POST-endpoint för ansökningar --------
+app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { firstName, lastName, email, city, phone, experiences, education, message } = req.body;
+
+    if (!req.file || !email) {
+      res.status(400).json({ message: 'E-post och CV krävs.' });
+      return;
+    }
+
+    const application: ApplicationData = {
+      firstName,
+      lastName,
+      email,
+      city,
+      phone,
+      experiences,
+      education,
+      message,
+      cvPath: req.file.path,
+    };
+
+    // -------- Spara i JSON-fil --------
+    const dataPath = path.join(__dirname, 'applications.json');
+    const previousData = fs.existsSync(dataPath)
+      ? JSON.parse(fs.readFileSync(dataPath, 'utf-8'))
+      : [];
+
+    previousData.push(application);
+    fs.writeFileSync(dataPath, JSON.stringify(previousData, null, 2));
+
+    // -------- Skicka e-post till företaget --------
+    const mailOptions = {
+      from: '"Jobbansökan" <din.email@gmail.com>',
+      to: 'foretaget@email.com',
+      subject: `Ny ansökan från ${firstName} ${lastName}`,
+      html: `
+        <h3>Ny ansökan mottagen</h3>
+        <p><strong>Namn:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Telefon:</strong> ${phone}</p>
+        <p><strong>Stad:</strong> ${city}</p>
+        <p><strong>Erfarenheter:</strong> ${experiences || 'Ej angett'}</p>
+        <p><strong>Utbildning:</strong> ${education || 'Ej angett'}</p>
+        <p><strong>Meddelande:</strong> ${message || 'Ej angett'}</p>
+      `,
+      attachments: [
+        {
+          filename: req.file.originalname,
+          path: req.file.path,
+        },
+      ],
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.status(200).json({ message: 'Ansökan mottagen och skickad via e-post.' });
+  } catch (error) {
+    console.error(' Fel vid hantering:', error);
+    res.status(500).json({ message: 'Ett serverfel uppstod.' });
+  }
+});
+
+// -------- GET-endpoint för att hämta alla jobbpositioner --------
+app.get('/api/positions', async (req: Request, res: Response): Promise<void> => {
+  try {
+    const db = await dbPromise;
+    const positions = await db.all('SELECT * FROM positions');
+
+    res.status(200).json(positions);
+  } catch (error) {
+    console.error('Fel vid hämtning av positioner:', error);
+    res.status(500).json({ message: 'Ett serverfel uppstod vid hämtning av positioner.' });
+  }
+});
+
+app.get('/api/debug-positions', async (req: Request, res: Response) => {
   try {
     const db = await dbPromise;
     const positions = await db.all('SELECT * FROM positions');
     res.status(200).json(positions);
-  } catch (err) {
-    console.error('Error fetching positions:', err);
-    res.status(500).send({ message: 'Error fetching positions.' });
+  } catch (error) {
+    console.error('Error fetching positions:', error);
+    res.status(500).json({ message: 'Failed to fetch positions.' });
   }
 });
 
-// API för att skapa en ny position
-app.post('/positions', async (req: Request, res: Response) => {
-  const { title, department, location, description, applicationDeadline, salary } = req.body;
-
-  try {
-    const db = await dbPromise;
-    const stmt = await db.prepare(`
-      INSERT INTO positions (title, department, location, description, applicationDeadline, salary)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `);
-
-    await stmt.run(title, department, location, description, applicationDeadline, salary);
-
-    console.log('Position created.');
-
-    res.status(201).send({ message: 'Position created successfully!' });
-  } catch (err) {
-    console.error('Error creating position:', err);
-    res.status(500).send({ message: 'Error creating position.' });
-  }
-});
-
-// API för att skicka en jobbansökan
-app.post('/submit-application', async (req: Request, res: Response) => {
-  const { firstName, lastName, email, phone, cvPath } = req.body;
-
-  try {
-    const db = await dbPromise;
-
-    const stmt = await db.prepare(
-      'INSERT INTO applicants (firstName, lastName, email, phone, cvPath) VALUES (?, ?, ?, ?, ?)'
-    );
-
-    await stmt.run(firstName, lastName, email, phone, cvPath);
-
-    console.log('Ansökan sparad i databasen.');
-
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'dinemail@gmail.com',
-        pass: 'din-applösenord'
-      }
-    });
-
-    const mailOptions = {
-      from: 'dinemail@gmail.com',
-      to: 'mottagare@gmail.com',
-      subject: 'Ny jobbansökan',
-      text: `En ny ansökan har inkommit:\n\nNamn: ${firstName} ${lastName}\nE-post: ${email}\nTelefon: ${phone}\nCV: ${cvPath}`
-    };
-
-    await transporter.sendMail(mailOptions);
-    console.log('E-post skickad.');
-
-    res.status(200).send({ message: 'Ansökan sparad och e-post skickad!' });
-  } catch (err) {
-    console.error('Fel vid sparande av ansökan eller e-postskickning:', err);
-    res.status(500).send({ message: 'Fel vid sparande av ansökan.' });
-  }
-});
-
-app.listen(5000, () => {
-  console.log('Servern körs på http://localhost:5000');
+// -------- Starta servern --------
+app.listen(PORT, () => {
+  console.log(`Servern är igång: http://localhost:${PORT}`);
 });
