@@ -1,15 +1,15 @@
 import "../assets/styles/about.css";
-import "../assets/styles/global.css";
-import { Container, Row, Col, Button, ProgressBar } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 function About() {
   return (
     <div className="about-page">
+
       <section className="about-hero">
         <div className="hero-content text-center">
           <h1 className="display-4">About</h1>
           <p className="lead">
-          Headquartered in Göteborg, the western gateway to Sweden, Resource Point AB is a 20+ year old firm, providing software solutions, services and resources to firms in Scandinavia.
+            Headquartered in Göteborg, the western gateway to Sweden, Resource Point AB is a 20+ year old firm, providing software solutions, services and resources to firms in Scandinavia.
           </p>
         </div>
         <svg
@@ -27,8 +27,8 @@ function About() {
 
       <section className="about-section py-5 bg-white">
         <Container>
-          <Row className="align-items-center">
-            <Col md={6}>
+          <Row className="align-items-center about-timeline">
+            <Col md={5}>
               <h2>Resource Point AB</h2>
               <p>
                 Resource Point is a distinguished consulting company with its roots firmly planted in the vibrant city of Gothenburg, Sweden. Established in 1997, Resource Point has been a trusted partner for organizations seeking innovative solutions and expert guidance in a rapidly evolving business landscape. With over two decades of experience, the company has built a reputation for excellence in providing strategic insights, tailored recommendations, and practical implementation support across various industries.
@@ -36,46 +36,64 @@ function About() {
               <p>
                 Resource Point AB is your trusted consulting partner, dedicated to helping you unlock your full potential and achieve sustainable growth. With a wealth of experience and a team of experts in various domains, we specialize in providing tailored solutions and strategic guidance to organizations across industries.
               </p>
-              <div>
-                <Row className="text-center">
-                  <Col md={4}>
-                    <h4>Modeling and Analytics</h4>
-                    <ProgressBar now={99} label="99%" />
-                  </Col>
-                  <Col md={4}>
-                    <h4>Customer-centric Analysis</h4>
-                    <ProgressBar now={95} label="95%" />
-                  </Col>
-                  <Col md={4}>
-                    <h4>Processing Result</h4>
-                    <ProgressBar now={99} label="99%" />
-                  </Col>
-                </Row>
+
+              <div className="circle-indicators">
+                <div className="circle" style={{['--circle-percent' as any]: 99,['--circle-color' as any]: '#bec4b5'}}>
+                  <div className="circle-inner">
+                    <div className="circle-value">99%</div>
+                    <div className="circle-label">Modeling and Analytics</div>
+                  </div>
+                </div>
+
+                <div className="circle" style={{['--circle-percent' as any]: 95,['--circle-color' as any]: '#bec4b5'}}>
+                  <div className="circle-inner">
+                    <div className="circle-value">95%</div>
+                    <div className="circle-label">Customer-centric Analysis</div>
+                  </div>
+                </div>
+
+                <div className="circle" style={{['--circle-percent' as any]: 99,['--circle-color' as any]: '#bec4b5'}}>
+                  <div className="circle-inner">
+                    <div className="circle-value">99%</div>
+                    <div className="circle-label">Processing Result</div>
+                  </div>
+                </div>
               </div>
             </Col>
 
-            <Col md={6}>
-              <h4>Timeline</h4>
+            <Col md={5}>
               <ul className="timeline">
                 <li>
                   <span className="year">1997</span>
-                  <p>Resource Point was established in Gothenburg, Sweden.</p>
+                  <div className="timeline-content">
+                    <h3>Expertise:</h3>
+                    <p>Our team of experienced consultants brings a wealth of knowledge and expertise to every project, ensuring successful outcomes.</p>
+                  </div>
                 </li>
                 <li>
                   <span className="year">2000</span>
-                  <p>We began offering cutting-edge consulting services to local businesses.</p>
+                  <div className="timeline-content">
+                    <h3>Client-centric Approach:</h3>
+                    <p>We prioritize your unique needs and business objectives, tailoring solutions that fit your organization perfectly.</p>
+                  </div>
                 </li>
                 <li>
                   <span className="year">2018</span>
-                  <p>Expanded our services to international clients with success.</p>
+                  <div className="timeline-content">
+                    <h3>Innovation:</h3>
+                    <p>We stay at the forefront of technology trends to provide you with cutting-edge solutions that give you a competitive advantage.</p>
+                  </div>
                 </li>
                 <li>
                   <span className="year">2023</span>
-                  <p>Achieved significant growth and strengthened our position as an industry leader.</p>
+                  <div className="timeline-content">
+                    <h3>Reliability</h3>
+                    <p>Count on us for dependable, 24/7 support and proactive monitoring to keep your systems running smoothly.</p>
+                  </div>
                 </li>
                 <li>
                   <span className="year">MARCH 2023</span>
-                  <p>We have more than 150 consultants helping clients worldwide.</p>
+                  <p>More than 150 Consultant</p>
                 </li>
               </ul>
             </Col>
@@ -83,15 +101,12 @@ function About() {
         </Container>
       </section>
 
-      <section className="contact-section py-5 bg-white">
+      <section className="contact-section py-5">
         <Container>
           <Row className="text-center">
             <Col md={12}>
-              <h2>
-                The operational processes are what drives the business
-                Apply for the position
-              </h2>
-              <Button variant="primary" size="lg" className="text-dark">
+              <h2>The operational processes are what drives the business</h2>
+              <Button variant="primary" size="lg" className="text-dark apply-btn">
                 Apply for the position
               </Button>
             </Col>
@@ -100,7 +115,6 @@ function About() {
       </section>
     </div>
   );
-  }
-  
-  export default About;
-  
+}
+
+export default About;

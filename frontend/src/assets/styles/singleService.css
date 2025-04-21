@@ -1,0 +1,81 @@
+.single-service {
+    width: 100vw;
+    margin: 0 auto;
+    color: #333;
+    height: 100vh;
+  }
+
+  .service-single-header{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    height: 40vh;
+    align-items: center;
+    background: linear-gradient(135deg, #333, #bec4b5);
+    position: relative;
+  }
+  
+  .single-servie-hero {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    line-height: 0;
+    z-index: 1;
+  }
+  
+  .wave {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .single-service h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fefbfa;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .single-service p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .serviceImg{
+    display: block; 
+    height: auto;
+    width: 20vw;
+    margin: 0 auto;
+  }
+  
+  /* Responsiv design */
+  @media (max-width: 768px) {
+    .single-service h1 {
+      font-size: 1.6rem;
+    }
+  
+    .single-service p {
+      font-size: 1rem;
+      text-align: left;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .single-service {
+      padding: 1rem 0.5rem;
+    }
+  
+    .single-service h1 {
+      font-size: 1.4rem;
+    }
+  
+    .single-service p {
+      font-size: 0.95rem;
+    }
+  }
+  

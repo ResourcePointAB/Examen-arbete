@@ -1,12 +1,27 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 function Footer() {
   return (
     <footer className="bg-dark text-white py-4">
       <Container>
-        <Row>
+        <Row className="text-start mx-5">
           <Col md={3}>
             <h5>Resource Point</h5>
+            <div>
+              <h5 className="social-icone-footer">Social Media</h5>
+              <div className="social-icons-footer d-flex text-start gap-3">
+                <a href="https://resourcepoint.se" target="_blank" rel="noopener noreferrer" className="icons text-white">
+                  <FaFacebookF />
+                </a>
+                <a href="https://resourcepoint.se" target="_blank" rel="noopener noreferrer" className="icons text-white">
+                  <FaTwitter />
+                </a>
+                <a href="https://www.linkedin.com/company/resourcepoint" target="_blank" rel="noopener noreferrer" className="icons text-white">
+                  <FaLinkedinIn />
+                </a>
+              </div>
+            </div>
           </Col>
 
           <Col md={3}>

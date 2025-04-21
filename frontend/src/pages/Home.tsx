@@ -86,7 +86,7 @@ function Home() {
               <div className="bt_bb_separator"></div>
               <p>Our core strengths are in supplying skilled and experienced consultants at competitive prices. We provide everything from coders fresh out of school to experienced system architects for short or long-term contracts. If you need competence that is hard or impossible to find in Sweden, we can provide that through our partners in India, Romania, and Macedonia.</p>
               <div className="bt_bb_separator"></div>
-              <ul>
+              <ul className="list-home">
                 <li>Strategic IT Consulting</li>
                 <li>Cloud Solutions</li>
                 <li>Cybersecurity</li>
@@ -120,8 +120,8 @@ function Home() {
                   <div className="service-card">
                     <img src={WorkImage} alt="Training & Development" className="service-image" />
                     <div className="service-content">
-                      <h3><a href="/single-service/4">Training & Development</a></h3>
-                      <a href="/single-service/4" className="btn-read-more">READ MORE</a>
+                      <h3><a href="/services">Training & Development</a></h3>
+                      <a href="/services" className="btn-read-more">READ MORE</a>
                     </div>
                   </div>
                 </div>
@@ -129,8 +129,8 @@ function Home() {
                   <div className="service-card">
                     <img src={DevelopmentImage} alt="Additional Service" className="service-image" />
                     <div className="service-content">
-                      <h3><a href="/single-service/5">Additional Service</a></h3>
-                      <a href="/single-service/5" className="btn-read-more">READ MORE</a>
+                      <h3><a href="/services">Additional Service</a></h3>
+                      <a href="/services" className="btn-read-more">READ MORE</a>
                     </div>
                   </div>
                 </div>

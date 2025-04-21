@@ -1,78 +1,128 @@
-.contact-hero{
-    position: relative;
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;  
+.contact-hero {
+  padding: 0;
+  background-color: #f8f9fa;
+  width: 100%;
+  min-width: 100vw;
 }
 
-.contact_map {
-    width: 100%; /* Fyll hela bredden */
-    height: 500px; /* Gör kartan högre */
-    margin-top: 30px;
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
   }
-  
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  /* Här kan du lägga till all din kontaktformulär CSS */
-  .contact_form {
-    margin-top: 30px;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+}
+
+.contact-page {
+  animation: slideInFromLeft 1.5s ease-out;
+}
+
+.contactS1{
+  background: linear-gradient(135deg, #333, #bec4b5);
+  width: 100%;
+  max-width: 100vw;
+  height: 50vh;
+  position: relative;
+}
+
+.wave{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100vw;
+  height: auto;
+}
+
+form {
+  max-width: 100%;
+}
+
+.contact-hero .text-start {
+  text-align: start !important;
+}
+
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 8px;
+}
+
+.social {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.social-icons .icon {
+  font-size: 1.25rem;
+  color: #fff;
+  background-color: #474342;
+  padding: 0.6rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+  margin-bottom: 40px;
+}
+
+.social-icons .icon:hover {
+  background-color: #474342;
+  transform: scale(1.1);
+}
+
+.form-submit button{
+  background-color: #212529 !important;
+  border: 1px solid #212529 !important;
+}
+
+.map-responsive{  
+  height: 200px !important;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsivitet */
+@media (max-width: 992px) {
+  .contact-hero h2 {
+    font-size: 1.75rem;
   }
-  
-  .contact_form .form-group {
-    margin-bottom: 20px;
+
+  .contact-hero p,
+  .contact-hero label {
+    font-size: 1rem;
   }
-  
-  .contact_form .form-control {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+
+  .social-icons .icon {
+    font-size: 1rem;
+    padding: 0.5rem;
   }
-  
-  .contact_form .btn {
-    background-color: #fc5633;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .social-icons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
   }
-  
-  .contact_form .btn:disabled {
-    background-color: #ddd;
-    cursor: not-allowed;
+
+  .contact-hero h5,
+  .contact-hero p {
+    text-align: start !important;
   }
-  
-  .common_btn {
-    background-color: #fc5633;
-    color: white;
-  }
-  
-  .contact_form .btn:hover {
-    background-color: #e84e2d;
-  }
-  
-  /* Justera etiketter och input-fält om det behövs */
-  .form-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .contact-hero {
-    padding: 50px 0;
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  
+}

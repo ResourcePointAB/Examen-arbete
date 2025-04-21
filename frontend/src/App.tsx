@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SingleService from "./pages/SingleService"
+import SearchPage from "./pages/Search";
 import"./assets/styles/global.css"
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
         <Route path="/careers" element={<Careers />} />
         <Route path="/clients" element={<Clients />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/single-service" element={<SingleService />} />
+        <Route path="/singleService/:serviceId" element={<SingleService />} />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
       <Footer/>
     </Router> 
