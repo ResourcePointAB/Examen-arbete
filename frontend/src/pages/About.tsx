@@ -1,7 +1,11 @@
 import "../assets/styles/about.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
-function About() {
+type Props = {
+  onApplyClick: (positionTitle?: string) => void;
+};
+
+function About({ onApplyClick }: Props) {
   return (
     <div className="about-page">
 
@@ -61,7 +65,7 @@ function About() {
               </div>
             </Col>
 
-            <Col md={5}>
+            <Col md={5} className="offset-md-1">
               <ul className="timeline">
                 <li>
                   <span className="year">1997</span>
@@ -106,7 +110,7 @@ function About() {
           <Row className="text-center">
             <Col md={12}>
               <h2>The operational processes are what drives the business</h2>
-              <Button variant="primary" size="lg" className="text-dark apply-btn">
+              <Button variant="primary" size="lg" className="text-dark apply-btn" onClick={() => onApplyClick("General Position")}>
                 Apply for the position
               </Button>
             </Col>

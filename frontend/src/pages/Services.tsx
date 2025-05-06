@@ -3,6 +3,8 @@ import { Row, Col, Button } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
+import { useState } from 'react';
+
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -18,6 +20,7 @@ import services from '../assets/images/stats.png';
 import ServiceImage from '../assets/images/service.jpg';
 import TalantImage from '../assets/images/talant.jpg';
 import WorkImage from '../assets/images/work.jpg';
+import AvailablePositions from '../components/AvailablePositions'; 
 
 const serviceBoxes = [
   { id: 1, image: img1, title: "Strategic Consulting Services", description: "Strategic Consulting Services", link: "/services/1" },
@@ -29,6 +32,16 @@ const serviceBoxes = [
 ];
 
 function Services() {
+  const [showPositions, setShowPositions] = useState(false);
+
+  const handleShowPositions = () => {
+    setShowPositions(!showPositions); 
+  };
+
+  const handleApplyClick = (title: string) => {
+    console.log(`Ansökan för position: ${title}`);
+  };
+
   return (
     <div className="container service-container">
       {/* Första sektionen */}
@@ -47,9 +60,9 @@ function Services() {
 
       {/* Andra sektionen */}
       <section>
-        <Row className="text-center py-5">
+        <Row className="text-center py-5 services-header-1">
           <Col>
-            <h1>Our Services</h1>
+            <h1>SERVICES</h1>
             <p>We provide a wide range of services to help you achieve your business goals.</p>
           </Col>
         </Row>
@@ -150,7 +163,8 @@ function Services() {
           </Col>
           <Col md={5} className="cta-text">
             <h2>If you have the idea, we will find the right way</h2>
-            <Button variant="secondary">View All Available Positions</Button>
+            <Button variant="secondary" onClick={handleShowPositions}>View All Available Positions</Button>
+            {showPositions && <AvailablePositions onApplyClick={handleApplyClick}/>}
           </Col>
         </Row>
       </section>

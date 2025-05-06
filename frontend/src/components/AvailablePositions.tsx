@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function AvailablePositions(){
+type AvailablePositionsProps = {
+  onApplyClick:  (title: string) => void;
+};
+
+function AvailablePositions({ onApplyClick }: AvailablePositionsProps) {
   const [positions, setPositions] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -21,26 +25,52 @@ function AvailablePositions(){
   }, []);
 
   return (
-    <div className="positions-container">
-      {loading ? (
-        <p>Laddar positioner...</p>
-      ) : positions.length > 0 ? (
-        <div className="positions-grid">
-          {positions.map((position) => (
-            <div className="position-box" key={position.id}>
-              <h3>{position.title}</h3>
-              <p><strong>{position.department}</strong> - {position.location}</p>
-              <p>{position.description}</p>
-              <p><strong>Ansökningsdeadline:</strong> {position.applicationDeadline}</p>
-              <p><strong>Salary:</strong> {position.salary} SEK</p>
-              <button className="apply-btn">Apply Now</button>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p>Inga positioner tillgängliga just nu.</p>
-      )}
-    </div>
+    <div className="positions-container" style={{ padding: '2rem 0' }}>
+    {loading ? (
+      <p>Laddar positioner...</p>
+    ) : positions.length > 0 ? (
+      <div
+        className="positions-grid"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3,  300px)',
+          justifyContent: 'center',
+          gap: '2rem',
+          width: '100%',
+          padding: '2rem',
+          boxSizing: 'border-box',
+          height: '100%',
+          overflowY: 'auto',
+        }}
+      >
+        {positions.map((position) => (
+          <div
+            className="position-box"
+            key={position.id}
+            style={{
+              flex: '0 1 300px',
+              border: '1px solid #ccc',
+              padding: '1rem',
+              borderRadius: '8px',
+              textAlign: 'center',
+              backgroundColor: '#f9f9f9',
+              minHeight: '200px',
+            }}
+          >
+            <h3>{position.title}</h3>
+            <p><strong>{position.department}</strong> - {position.location}</p>
+            <p>{position.description}</p>
+            <p><strong>Ansökningsdeadline:</strong> {position.applicationDeadline}</p>
+            {/* <p><strong>Salary:</strong> {position.salary} SEK</p> */}
+            <button className="apply-btn" onClick={() => onApplyClick(position.title)}>Apply Now</button>
+          </div>
+        ))}
+      </div>
+    ) : (
+    <p>Inga positioner tillgängliga just nu.</p>
+  )}
+</div>
+
   );
 };
 

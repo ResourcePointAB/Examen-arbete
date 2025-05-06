@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "../assets/styles/global.css";
 import "../assets/styles/contact.css";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+// import bgImage from '../assets/images/contact.jpg';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -58,7 +59,9 @@ const Contact = () => {
 
   return (
     <Container fluid className="contact-hero">
-      <section className="contactS1">
+      <section className="contactS1" 
+      // <section className="contactS1" style={{ backgroundImage: `url(${bgImage})`,backgroundSize: 'cover',
+         >
         <Row className="justify-content-center mb-4 text-center">
           <Col lg={8}>
             <h2 className=" py-5 text-white">Contact us</h2>

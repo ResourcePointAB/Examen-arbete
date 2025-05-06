@@ -25,6 +25,8 @@ const createPositionsTable = async () => {
 const insertPositionData = async () => {
   try {
     const db = await dbPromise;
+    
+    await db.run('DELETE FROM positions'); // Clear existing data
 
     const stmt = await db.prepare(`
       INSERT INTO positions (title, department, location, description, applicationDeadline, salary)
@@ -32,7 +34,8 @@ const insertPositionData = async () => {
     `);
 
     await stmt.run('Frontend Developer', 'IT', 'Gothenburg', 'Develop web interfaces', '2025-05-01', 40000);
-    await stmt.run('Backend Developer', 'IT', 'Stockholm', 'Develop server-side logic', '2025-06-01', 45000);
+    await stmt.run('Backend Developer', 'IT', 'Gothenburg', 'Develop server-side logic', '2025-06-01', 40000);
+    await stmt.run('UI Software Engineer', 'IT', 'Gothenburg', 'testing software solutions according to technical requirements', '2026-02-01', 40000);
 
     console.log('Sample position data inserted.');
   } catch (err) {

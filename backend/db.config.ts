@@ -1,6 +1,7 @@
 import sqlite3 from 'sqlite3';
 import { open, Database } from 'sqlite';
 
+// kopplar till databasen och skapar tabeller om de saknas.
 async function initializeDB(): Promise<Database> {
   const db = await open({
     filename: './database/database.db', 

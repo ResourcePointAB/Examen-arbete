@@ -4,7 +4,9 @@ import multer from 'multer';
 import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
-import dbPromise from './db.config';  
+import dbPromise from './db.config'; 
+import dotenv from 'dotenv';
+dotenv.config(); 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,14 +15,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// -------- Skapa 'database'-mappen om den inte finns --------
-const dbDirectory = path.join(__dirname, 'database');
+app.get('/', (req, res) => {
+  res.send('Välkommen till servern!');
+});
 
-if (!fs.existsSync(dbDirectory)) {
-  fs.mkdirSync(dbDirectory);
-}
-
-// -------- Multer: för CV-uppladdningar --------
+// -------- 1.1 Multer: Spara CV i uploads mappen i backend--------
 const uploadDir = path.join(__dirname, 'uploads');
 
 const storage = multer.diskStorage({
@@ -37,7 +36,18 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage });
+// -------- 1.2 Skydda servern från för stora filer och tillåt rätt filtyp --------
+const upload = multer({
+  storage, 
+  limits: { fileSize: 5 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const allowedMimeTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    if (!allowedMimeTypes.includes(file.mimetype)) {
+      return cb(new Error('Only PDF and DOC files are allowed.'));
+    }
+    cb(null, true);
+  }
+});
 
 // -------- Ansökningsdata-typ --------
 interface ApplicationData {
@@ -45,27 +55,30 @@ interface ApplicationData {
   lastName: string;
   email: string;
   city: string;
-  phone: number;
+  phone: string;
   experiences?: string;
   education?: string;
   message?: string;
+  portfolio?: string;
   cvPath: string;
 }
 
-// -------- Nodemailer-konfiguration --------
-// Byt till din egen e-post och "App Password" från Gmail
+// --------2. Nodemailer-konfiguration --------
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'din.email@gmail.com',
-    pass: 'ditt-app-losenord',
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
-// -------- POST-endpoint för ansökningar --------
+// --------3. POST-endpoint för ansökningar --------
 app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response): Promise<void> => {
   try {
-    const { firstName, lastName, email, city, phone, experiences, education, message } = req.body;
+    console.log('Form data received:', req.body);
+    console.log('Uploaded file:', req.file);
+    console.log(req.body.positionTitle); 
+    const { firstName, lastName, email, city, phone, experience, education, message, portfolio } = req.body;
 
     if (!req.file || !email) {
       res.status(400).json({ message: 'E-post och CV krävs.' });
@@ -78,25 +91,42 @@ app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response):
       email,
       city,
       phone,
-      experiences,
+      experiences: experience,
       education,
       message,
+      portfolio,
       cvPath: req.file.path,
     };
 
-    // -------- Spara i JSON-fil --------
+    // --------4- Sparar användarens ansökningsdata i JSON-fil localt in backend-------
+
     const dataPath = path.join(__dirname, 'applications.json');
-    const previousData = fs.existsSync(dataPath)
-      ? JSON.parse(fs.readFileSync(dataPath, 'utf-8'))
-      : [];
 
-    previousData.push(application);
-    fs.writeFileSync(dataPath, JSON.stringify(previousData, null, 2));
+    let previousData: ApplicationData[] = [];
+    try {
+      if (fs.existsSync(dataPath)) {
+        const fileContent = fs.readFileSync(dataPath, 'utf-8').trim();
+    
+        if (fileContent) {
+          try {
+            previousData = JSON.parse(fileContent);
+          } catch (err) {
+            console.error('Error parsing JSON from file:', err);
+          }
+        }
+      }
 
-    // -------- Skicka e-post till företaget --------
+      previousData.push(application);
+      fs.writeFileSync(dataPath, JSON.stringify(previousData, null, 2));
+    } catch (err) {
+      console.error('Error while reading/writing the file:', err);
+    }
+
+    // --------5- Skicka e-post till företaget --------
+    const positionTitle = req.body.positionTitle;
     const mailOptions = {
-      from: '"Jobbansökan" <din.email@gmail.com>',
-      to: 'foretaget@email.com',
+      from: `"Jobbansökan" <${process.env.EMAIL_USER}>`,
+      to: 'anahita.einbeigi@gmail.com', 
       subject: `Ny ansökan från ${firstName} ${lastName}`,
       html: `
         <h3>Ny ansökan mottagen</h3>
@@ -104,8 +134,10 @@ app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response):
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Telefon:</strong> ${phone}</p>
         <p><strong>Stad:</strong> ${city}</p>
-        <p><strong>Erfarenheter:</strong> ${experiences || 'Ej angett'}</p>
+        <p><strong>Jobbtitel:</strong> ${positionTitle || 'Ej angett'}</p>
+        <p><strong>Erfarenheter:</strong> ${experience || 'Ej angett'}</p>
         <p><strong>Utbildning:</strong> ${education || 'Ej angett'}</p>
+        <p><strong>Portfolio:</strong> ${portfolio || 'Ej angett'}</p>
         <p><strong>Meddelande:</strong> ${message || 'Ej angett'}</p>
       `,
       attachments: [
@@ -125,12 +157,19 @@ app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response):
   }
 });
 
+// ---------------------------------databas-new positions -------------------------------
+// -------- Skapa 'database'-mappen om den inte finns ------------
+const dbDirectory = path.join(__dirname, 'database');
+
+if (!fs.existsSync(dbDirectory)) {
+  fs.mkdirSync(dbDirectory);
+}
+
 // -------- GET-endpoint för att hämta alla jobbpositioner --------
 app.get('/api/positions', async (req: Request, res: Response): Promise<void> => {
   try {
     const db = await dbPromise;
     const positions = await db.all('SELECT * FROM positions');
-
     res.status(200).json(positions);
   } catch (error) {
     console.error('Fel vid hämtning av positioner:', error);
@@ -138,14 +177,20 @@ app.get('/api/positions', async (req: Request, res: Response): Promise<void> => 
   }
 });
 
-app.get('/api/debug-positions', async (req: Request, res: Response) => {
+// -------- POST-endpoint för att lägga till en ny jobbposition --------
+app.post('/api/add-position', async (req: Request, res: Response) => {
   try {
+    const { title, department, location, description, applicationDeadline, salary } = req.body;
     const db = await dbPromise;
-    const positions = await db.all('SELECT * FROM positions');
-    res.status(200).json(positions);
+    await db.run(`
+      INSERT INTO positions (title, department, location, description, applicationDeadline, salary)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `, [title, department, location, description, applicationDeadline, salary]);
+    
+    res.status(201).json({ message: 'Position added successfully!' });
   } catch (error) {
-    console.error('Error fetching positions:', error);
-    res.status(500).json({ message: 'Failed to fetch positions.' });
+    console.error('Error adding position:', error);
+    res.status(500).json({ message: 'Failed to add position.' });
   }
 });
 
