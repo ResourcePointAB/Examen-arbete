@@ -4,8 +4,11 @@ import { Link, useLocation } from "react-router-dom";
 import { FaSearch } from "react-icons/fa"; 
 import LogoImage from '../assets/images/logo.png';
 import SearchOverlay from "./SearchOverlay";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 function Header() {
+  const { t, i18n } = useTranslation();
   // visning av sök-overlay
   const [showSearch, setShowSearch] = useState(false);
   // state för att hantera om navbaren är expanderad eller inte
@@ -37,7 +40,8 @@ function Header() {
 
   return (
     <>
-    <Navbar ref={navbarRef} expand="lg" bg="dark" variant="dark" className="shadow-sm py-2" expanded={expanded}>
+    <Navbar ref={navbarRef} expand="lg"   style={{ backgroundColor: '#f7f4f0' }}
+    variant="dark" className="shadow-sm py-2" expanded={expanded}>
       <Container>
        
         <Navbar.Brand as={Link} to="/">
@@ -50,22 +54,22 @@ function Header() {
           />
         </Navbar.Brand>
 
-        <div className="d-lg-none me-2 text-white" onClick={() => setShowSearch(true)} style={{ cursor: 'pointer' }}>
+        <div className="d-lg-none me-2 text-black" onClick={() => setShowSearch(true)} style={{ cursor: 'pointer' }}>
           <FaSearch size={20} />
         </div>
 
         <Navbar.Toggle aria-controls="navbar-nav"  className=" mx-5" onClick={() => setExpanded(!expanded)}/>
 
         <Navbar.Collapse id="navbar-nav">
-          <Nav className="ms-auto align-items-center  mx-5">
-            <Nav.Link as={Link} to="/" className="text-white">Home</Nav.Link>
-            <Nav.Link as={Link} to="/about" className="text-white">About Us</Nav.Link>
-            <Nav.Link as={Link} to="/services" className="text-white">Our Services</Nav.Link>
-            <Nav.Link as={Link} to="/careers" className="text-white">Careers</Nav.Link>
-            <Nav.Link as={Link} to="/clients" className="text-white">Clients</Nav.Link>
-            <Nav.Link as={Link} to="/contact" className="text-white">Contact</Nav.Link>
+          <Nav className="ms-auto align-items-center mx-5">
+          <Nav.Link as={Link} to="/" className="text-black">{t('header.home')}</Nav.Link>
+          <Nav.Link as={Link} to="/about" className="text-black">{t('header.about')}</Nav.Link>
+          <Nav.Link as={Link} to="/services" className="text-black">{t('header.services')}</Nav.Link>
+          <Nav.Link as={Link} to="/blog" className="text-black">{t('header.blog')}</Nav.Link>
+          <Nav.Link as={Link} to="/contact" className="text-black">{t('header.contact')}</Nav.Link>
+            <LanguageSwitcher />
 
-            <div className="d-none d-lg-block ms-3 text-white" onClick={() => setShowSearch(true)} style={{ cursor: 'pointer' }}>
+            <div className="d-none d-lg-block ms-3 text-black" onClick={() => setShowSearch(true)} style={{ cursor: 'pointer' }}>
               <FaSearch size={18} />
             </div>
           </Nav>

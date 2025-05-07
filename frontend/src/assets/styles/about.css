@@ -57,10 +57,14 @@
 
 .circle-indicators {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   gap: 30px;
   flex-wrap: wrap;
   margin-top: 30px;
+}
+
+.circle-indicators h3{
+  margin-bottom: -10px;
 }
 
 .circle {
@@ -154,7 +158,7 @@
 .contact-section {
   border-top: 1px solid rgb(224, 224, 224);
   border-bottom: 1px solid rgb(224, 224, 224);
-  background-color: rgb(241, 241, 234);
+  background-color: #f7f4f0;
   color: rgb(41, 39, 39);
   padding: 60px 20px;
   height: 300px;

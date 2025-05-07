@@ -1,0 +1,14 @@
+{
+    "home": {
+      "welcome": "Welcome to Resource Point",
+      "services": "Our Services"
+    },
+    "header": {
+      "home": "Home",
+      "about": "About Us",
+      "services": "Our Services",
+      "blog": "Blog",
+      "contact": "Contact"
+    }
+  }
+  

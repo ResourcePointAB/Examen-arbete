@@ -3,8 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import Careers from "./pages/Careers";
-import Clients from "./pages/Clients";
+import Blog from "./pages/Blog";
+// import Clients from "./pages/Clients";
 import Contact from "./pages/Contact";
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -78,8 +78,8 @@ function App() {
         <Route path="/" element={<Home onApplyClick={handleShow} />} />
         <Route path="/about" element={<About onApplyClick={handleShow} />}  />
         <Route path="/services" element={<Services />} />
-        <Route path="/careers" element={<Careers />} />
-        <Route path="/clients" element={<Clients />} />
+        <Route path="/blog" element={<Blog />} />
+        {/* <Route path="/clients" element={<Clients />} /> */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/singleService/:serviceId" element={<SingleService />} />
         <Route path="/search" element={<SearchPage />} />

@@ -4,6 +4,9 @@
 
 .services-header-1 {
   background: linear-gradient(135deg, #333, #bec4b5);
+  height: 40vh;
+  position: relative;
+  color: white;
 }
 
 .cta-section-container{
@@ -81,6 +84,15 @@
   height: 90%; 
   object-fit: cover; 
   border: #040404 2px solid;
+}
+
+.service-svg{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1; 
+  width: 100%;
+  line-height: 0;
 }
 
 /* .service-video {
@@ -300,8 +312,9 @@
 
 /* === CTA Section === */
 .cta-section {
-  padding: 40px 0;
+  padding: 80px 0;
   text-align: center;
+
 }
 
 .cta-section h2 {

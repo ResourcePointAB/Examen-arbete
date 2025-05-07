@@ -60,7 +60,7 @@ function AvailablePositions({ onApplyClick }: AvailablePositionsProps) {
             <h3>{position.title}</h3>
             <p><strong>{position.department}</strong> - {position.location}</p>
             <p>{position.description}</p>
-            <p><strong>Ansökningsdeadline:</strong> {position.applicationDeadline}</p>
+            {/* <p><strong>Ansökningsdeadline:</strong> {position.applicationDeadline}</p> */}
             {/* <p><strong>Salary:</strong> {position.salary} SEK</p> */}
             <button className="apply-btn" onClick={() => onApplyClick(position.title)}>Apply Now</button>
           </div>

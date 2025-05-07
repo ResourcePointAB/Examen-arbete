@@ -1,0 +1,14 @@
+{
+    "header": {
+      "home": "Hem",
+      "about": "Om Oss",
+      "services": "Våra Tjänster",
+      "blog": "Blogg",
+      "contact": "Kontakt"
+    },
+    "home": {
+      "welcome": "Välkommen till Resource Point",
+      "services": "Våra Tjänster"
+    }
+  }
+  
