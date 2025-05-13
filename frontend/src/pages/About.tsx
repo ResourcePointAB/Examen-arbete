@@ -1,12 +1,15 @@
 import "../assets/styles/about.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import AboutHero from "../assets/images/about-hero.jpg";
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   onApplyClick: (positionTitle?: string) => void;
 };
 
 function About({ onApplyClick }: Props) {
+  const { t } = useTranslation()
+
   return (
     <div className="about-page">
 
@@ -18,9 +21,9 @@ function About({ onApplyClick }: Props) {
           backgroundRepeat: "no-repeat",
         }}>
         <div className="hero-content text-center">
-          <h1 className="display-4">ABOUT</h1>
+          <h1 className="display-4">{t("about.title")}</h1>
           <p className="lead">
-            Headquartered in Göteborg, the western gateway to Sweden, Resource Point AB is a 20+ year old firm, providing software solutions, services and resources to firms in Scandinavia.
+            {t("about.description")}
           </p>
         </div>
         <div className="stats-svg-bottom">
@@ -31,76 +34,59 @@ function About({ onApplyClick }: Props) {
       <section className="about-section py-5 bg-white">
         <Container>
           <Row className="align-items-center about-timeline">
-            <Col md={5}>
+            <Col md={5} className="mx-auto mb-4">
               <h2>Resource Point AB</h2>
               <p>
-                Resource Point is a distinguished consulting company with its roots firmly planted in the vibrant city of Gothenburg, Sweden. Established in 1997, Resource Point has been a trusted partner for organizations seeking innovative solutions and expert guidance in a rapidly evolving business landscape. With over two decades of experience, the company has built a reputation for excellence in providing strategic insights, tailored recommendations, and practical implementation support across various industries.
+                {t("about.sectionTwoDescription")}
               </p>
               <p>
-                Resource Point AB is your trusted consulting partner, dedicated to helping you unlock your full potential and achieve sustainable growth. With a wealth of experience and a team of experts in various domains, we specialize in providing tailored solutions and strategic guidance to organizations across industries.
+                {t("about.sectionTwoDescription2")}
               </p>
 
               <div className="circle-indicators">
-                <h3 style={{textAlign:"left"}}>Internship program</h3>
+                <h3 style={{textAlign:"left"}}> {t("about.internship")}</h3>
                 <p>
-                  We have a running collaboration with IT-Högskolan i Väst, where we take in a group of students and give them real assignments to build IT applications for their internship. That gives them real experience from worklife and we support them with expertise from our senior consultants at the same time as we are getting to know them personally. We also help them with what it takes to get assignments as consultants or their first job, when they graduate.
+                  {t("about.internshipDescription")}
                 </p>
-                {/* <div className="circle" style={{['--circle-percent' as any]: 99,['--circle-color' as any]: '#bec4b5'}}>
-                  <div className="circle-inner">
-                    <div className="circle-value">99%</div>
-                    <div className="circle-label">Modeling and Analytics</div>
-                  </div>
-                </div>
-
-                <div className="circle" style={{['--circle-percent' as any]: 95,['--circle-color' as any]: '#bec4b5'}}>
-                  <div className="circle-inner">
-                    <div className="circle-value">95%</div>
-                    <div className="circle-label">Customer-centric Analysis</div>
-                  </div>
-                </div>
-
-                <div className="circle" style={{['--circle-percent' as any]: 99,['--circle-color' as any]: '#bec4b5'}}>
-                  <div className="circle-inner">
-                    <div className="circle-value">99%</div>
-                    <div className="circle-label">Processing Result</div>
-                  </div>
-                </div> */}
+                <Button variant="primary" size="lg" className="text-dark apply-btn" onClick={() => onApplyClick("General Position")}>
+              {t("about.sendCv")}
+              </Button>
               </div>
             </Col>
 
-            <Col md={5} className="offset-md-1">
+            <Col md={5} className="offset-md-1 mx-auto mb-4">
               <ul className="timeline">
                 <li>
                   <span className="year">1997</span>
                   <div className="timeline-content">
-                    <h3>Expertise:</h3>
-                    <p>Our team of experienced consultants brings a wealth of knowledge and expertise to every project, ensuring successful outcomes.</p>
+                    <h3> {t("about.timeline.title")}</h3>
+                    <p>{t("about.timeline.event")} </p>
                   </div>
                 </li>
                 <li>
                   <span className="year">2000</span>
                   <div className="timeline-content">
-                    <h3>Client-centric Approach:</h3>
-                    <p>We prioritize your unique needs and business objectives, tailoring solutions that fit your organization perfectly.</p>
+                    <h3>{t("about.timeline.title1")} </h3>
+                    <p>{t("about.timeline.event1")} </p>
                   </div>
                 </li>
                 <li>
                   <span className="year">2018</span>
                   <div className="timeline-content">
-                    <h3>Innovation:</h3>
-                    <p>We stay at the forefront of technology trends to provide you with cutting-edge solutions that give you a competitive advantage.</p>
+                    <h3>{t("about.timeline.title2")} </h3>
+                    <p>{t("about.timeline.event2")} </p>
                   </div>
                 </li>
                 <li>
                   <span className="year">2023</span>
                   <div className="timeline-content">
-                    <h3>Reliability</h3>
-                    <p>Count on us for dependable, 24/7 support and proactive monitoring to keep your systems running smoothly.</p>
+                    <h3>{t("about.timeline.title3")} </h3>
+                    <p>{t("about.timeline.event3")} </p>
                   </div>
                 </li>
                 <li>
-                  <span className="year">MARCH 2023</span>
-                  <p>More than 150 Consultant</p>
+                  <span className="year">2025</span>
+                  <p>{t("about.timeline.event4")} </p>
                 </li>
               </ul>
             </Col>
@@ -108,18 +94,18 @@ function About({ onApplyClick }: Props) {
         </Container>
       </section>
 
-      <section className="contact-section py-5">
+      {/* <section className="contact-section py-5">
         <Container>
           <Row className="text-center">
             <Col md={12}>
-              <h2>The operational processes are what drives the business</h2>
+              <h2>{t("about.info")}</h2>
               <Button variant="primary" size="lg" className="text-dark apply-btn" onClick={() => onApplyClick("General Position")}>
-                Apply for the internship
+              {t("about.sendCv")}
               </Button>
             </Col>
           </Row>
         </Container>
-      </section>
+      </section> */}
     </div>
   );
 }

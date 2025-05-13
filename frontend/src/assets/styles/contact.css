@@ -52,7 +52,7 @@ form {
   height: 0;
 }
 .map-responsive iframe {
-  height: 50%;
+  height: 40%;
   width: 80%;
   position: absolute;
   border-radius: 8px;
@@ -64,7 +64,6 @@ form {
   align-items: center;
   height: auto;
   max-height: 60vh;
-  
 }
 
 .social {
@@ -103,8 +102,118 @@ form {
   margin-right: auto;
 }
 
+.contact-title{
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 80px;
+}
+
 /* Responsivitet */
-@media (max-width: 992px) {
+@media (min-width: 1400px) and (max-width: 1600px) {
+
+  .contactS1{
+    width: 100%;
+    max-width: 100vw;
+    height: 60vh !important;
+  }
+
+  .map-responsive iframe {
+    height: 40%;
+    width: 50%;
+    position: absolute;
+    border-radius: 8px;
+    margin-left: 10%;
+  }
+
+  .contact-info{
+    margin-left: 10px;
+    margin-top: 15px;
+  }
+
+  .form-contact{
+    margin-left: 18px;
+    margin-top: 15px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1399.99px) {
+   .map-section{
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+
+  .contactS1{
+    width: 100%;
+    max-width: 100vw;
+    height: 60vh !important;
+  }
+
+  .contact-info{
+    margin-left: 10px;
+    margin-top: 15px;
+  }
+
+  .form-contact{
+    margin-left: 18px;
+    margin-top: 15px;
+  }
+
+  .contactS1{
+    width: 100%;
+    max-width: 100vw;
+    height: 50vh !important;
+  }
+
+  .map-responsive iframe {
+    height: 40%;
+    width: 60%;
+    position: absolute;
+    border-radius: 8px;
+    left: 20%;
+  }
+
+  .contact-info{
+    margin-left: 10px;
+    margin-top: 15px;
+  }
+
+  .form-contact{
+    margin-left: 18px;
+    margin-top: 15px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.99px) {
+  .map-section{
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+  }
+
+  .contactS1{
+    width: 100%;
+    max-width: 100vw;
+    height: 50vh !important;
+  }
+
+  .map-responsive iframe {
+    height: 40%;
+    width: 60%;
+    position: absolute;
+    border-radius: 8px;
+    left: 20%;
+  }
+
+  .contact-info{
+    margin-left: 10px;
+    margin-top: 15px;
+  }
+
+  .form-contact{
+    margin-left: 18px;
+    margin-top: 15px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.99px) {
   .contact-hero h2 {
     font-size: 1.75rem;
   }
@@ -118,9 +227,99 @@ form {
     font-size: 1rem;
     padding: 0.5rem;
   }
-}
 
-@media (max-width: 576px) {
+  .map-section{
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+  }
+
+  .contactS1{
+    width: 100%;
+    max-width: 100vw;
+    height: 40vh !important;
+  }
+
+  .map-responsive iframe {
+    height: 50%;
+    width: 80%;
+    position: absolute;
+    border-radius: 8px;
+    left: 10%;
+  }
+
+  .contact-info{
+    margin-left: 10px;
+    margin-top: 15px;
+  }
+
+  .form-contact{
+    margin-left: 18px;
+    margin-top: 15px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.99px) {
+  .contact-hero h2 {
+    font-size: 1.75rem;
+  }
+
+  .contact-hero p,
+  .contact-hero label {
+    font-size: 1rem;
+  }
+
+  .social-icons .icon {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .map-section{
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+
+  .contactS1{
+    width: 100%;
+    max-width: 100vw;
+    height: 40vh !important;
+  }
+
+  .map-responsive iframe {
+    height: 60%;
+    width: 80%;
+    position: absolute;
+    border-radius: 8px;
+    left: 10%;
+  }
+
+  .contact-info{
+    margin-left: 10px;
+    margin-top: 15px;
+  }
+
+  .form-contact{
+    margin-left: 18px;
+    margin-top: 15px;
+  }
+}
+@media (max-width: 575.99px) {
+  .contactS1{
+    width: 100%;
+    max-width: 100vw;
+    height: 40vh !important;
+  }
+
+  .contact-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+
+  .contact-page{
+    margin-left: 15%;
+  }
+
   .social-icons {
     flex-direction: row;
     flex-wrap: wrap;
@@ -131,5 +330,23 @@ form {
   .contact-hero h5,
   .contact-hero p {
     text-align: start !important;
+  }
+
+  .map-responsive iframe {
+    height: 80%;
+    width: 100%;
+    position: absolute;
+    border-radius: 8px;
+    left: 10%;
+  }
+
+  .contact-info{
+    margin-left: 10px;
+    margin-top: 15px;
+  }
+
+  .form-contact{
+    margin-left: 18px;
+    margin-top: 15px;
   }
 }

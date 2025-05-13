@@ -4,6 +4,7 @@ import AvailablePositions from '../components/AvailablePositions';
 import "../assets/styles/global.css";
 import "../assets/styles/responsive.css";
 import "../assets/styles/home.css";
+import { useTranslation } from 'react-i18next';
 
 import ServiceImage from '../assets/images/service.jpg';
 import TalantImage from '../assets/images/talant.jpg';
@@ -15,8 +16,6 @@ import img1 from '../assets/images/1.jpg';
 import img2 from '../assets/images/2.jpg';
 import img3 from '../assets/images/3.jpg';
 import img4 from '../assets/images/4.jpg';
-// import ericsson from '../assets/images/ericsson.png';
-// import volvo from '../assets/images/volvo.png';
 import ideaHeroImage from '../assets/images/idea-hero.jpg';
 
 type Props = {
@@ -25,11 +24,9 @@ type Props = {
 
 function Home({ onApplyClick }: Props) {
   const [show, setShow] = useState(false);
-  // const [showPositions, setShowPositions] = useState(false); 
   const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
 
   const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
   const handleShow = (positionTitle?: string) => {
     if (positionTitle) {
       setSelectedPosition(positionTitle);
@@ -39,9 +36,7 @@ function Home({ onApplyClick }: Props) {
     setShow(true);
   };
 
-  // const handleShowPositions = () => {
-  //   setShowPositions(!show); 
-  // };
+  const { t } = useTranslation()
 
   // Function to handle CV submit in the modal 
   async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
@@ -87,8 +82,10 @@ function Home({ onApplyClick }: Props) {
       
        {/*section header*/}
       <section className="text-center py-5 background-section">
-        <h1 className="display-4 fw-bold">Your Vision.<span> Our Passion.</span></h1>
-        <p className="lead">Resource Point has the IT experts you need.</p>
+        <h1 className="display-4 fw-bold">
+          {t("home.vision")}<span> {t("home.passion")}</span>
+        </h1>
+        <p className="lead">{t("home.lead")}</p>
         <svg
           className="wave"
           xmlns="http://www.w3.org/2000/svg"
@@ -108,18 +105,18 @@ function Home({ onApplyClick }: Props) {
           <div className="row justify-content-center skilled-home">
             <div className="col-md-4 text-cart-home">
               <header className="bt_bb_headline">
-                <h2>Skilled and experienced consultants</h2>
-                <p>We are a reputed consultant company in Gothenburg with experience of more than 25 years.</p>
+                <h2>{t("home.skilledTitle")}</h2>
+                <p>{t("home.skilledIntro")}</p>
               </header>
               <div className="bt_bb_separator"></div>
-              <p>Our core strengths are in supplying skilled and experienced consultants at competitive prices. We provide everything from coders fresh out of school to experienced system architects for short or long-term contracts. If you need competence that is hard or impossible to find in Sweden, we can provide that through our partners in India, Romania, and Macedonia.</p>
+              <p>{t("home.skilledDescription")}</p>
               <div className="bt_bb_separator"></div>
               <ul className="list-home">
-                <li>Strategic IT Consulting</li>
-                <li>Cloud Solutions</li>
-                <li>Cybersecurity</li>
-                <li>Managed IT Services</li>
-                <li>Data Analytics</li>
+                <li>{t("home.services.Strategic")}</li>
+                <li>{t("home.services.Strategic1")}</li>
+                <li>{t("home.services.Strategic2")}</li>
+                <li>{t("home.services.Strategic3")}</li>
+                <li>{t("home.services.Strategic4")}</li>
               </ul>
               <a href="/services" className="bt_bb_button">Explore Solutions</a>
             </div>
@@ -130,7 +127,7 @@ function Home({ onApplyClick }: Props) {
                   <div className="service-card">
                     <img src={ServiceImage} alt="IT Consultancy & Solutions" className="service-image" />
                     <div className="service-content">
-                      <h3><a href="/services">IT Consultancy & Solutions</a></h3>
+                      <h3><a href="/services">{t("home.servicesList.it")}</a></h3>
                       <a href="/services" className="btn-read-more">READ MORE</a>
                     </div>
                   </div>
@@ -139,7 +136,7 @@ function Home({ onApplyClick }: Props) {
                   <div className="service-card mt-4">
                     <img src={TalantImage} alt="HR On-Demand Subscription" className="service-image" />
                     <div className="service-content">
-                      <h3><a href="/services">HR On-Demand Subscription</a></h3>
+                      <h3><a href="/services">{t("home.servicesList.hr")}</a></h3>
                       <a href="/services" className="btn-read-more">READ MORE</a>
                     </div>
                   </div>
@@ -148,7 +145,7 @@ function Home({ onApplyClick }: Props) {
                   <div className="service-card" style={{ marginTop: "-20px" }}>
                     <img src={WorkImage} alt="Training & Development" className="service-image" />
                     <div className="service-content">
-                      <h3><a href="/services">Training & Development</a></h3>
+                      <h3><a href="/services">{t("home.servicesList.training")}</a></h3>
                       <a href="/services" className="btn-read-more">READ MORE</a>
                     </div>
                   </div>
@@ -157,7 +154,7 @@ function Home({ onApplyClick }: Props) {
                   <div className="service-card">
                     <img src={DevelopmentImage} alt="Additional Service" className="service-image" />
                     <div className="service-content">
-                      <h3><a href="/services">Additional Service</a></h3>
+                      <h3><a href="/services">{t("home.servicesList.additional")}</a></h3>
                       <a href="/services" className="btn-read-more">READ MORE</a>
                     </div>
                   </div>
@@ -170,8 +167,8 @@ function Home({ onApplyClick }: Props) {
 
       {/* section Recruitment Process*/}
       <section className="recruitment-process text-center py-5 bg-whiite">
-        <h1 className="fw-bold fs-2">Steps of Recruitment Process</h1>
-        <p>We guide you through every step to find the best talent.</p>
+        <h1 className="fw-bold fs-2">{t("home.stepsTitle")}</h1>
+        <p>{t("home.stepsIntro")}</p>
         <div className="container justify-content-center">
           <div className="row justify-content-center steps-home">
 
@@ -181,7 +178,7 @@ function Home({ onApplyClick }: Props) {
                 <div className="process-icon">
                   <img src={img1} alt="Identify Job Opening" className="icon-img" />
                 </div>
-                <h2>Identify Job Opening</h2>
+                <h2>{t("home.steps.step1")}</h2>
               </div>
             </div>
 
@@ -191,7 +188,7 @@ function Home({ onApplyClick }: Props) {
                 <div className="process-icon">
                   <img src={img2} alt="Recruit and Interview" className="icon-img" />
                 </div>
-                <h2>Recruit and Interview</h2>
+                <h2>{t("home.steps.step2")}</h2>
               </div>
             </div>
 
@@ -201,7 +198,7 @@ function Home({ onApplyClick }: Props) {
                 <div className="process-icon">
                   <img src={img3} alt="Select Candidate" className="icon-img" />
                 </div>
-                <h2>Select Candidate</h2>
+                <h2>{t("home.steps.step3")}</h2>
               </div>
             </div>
 
@@ -211,13 +208,13 @@ function Home({ onApplyClick }: Props) {
                 <div className="process-icon">
                   <img src={img4} alt="Onboard and Start" className="icon-img" />
                 </div>
-                <h2>Onboard and Start</h2>
+                <h2>{t("home.steps.step4")}</h2>
               </div>
             </div>
           </div>
         </div>
         <button className="btn btn-dark mt-4" onClick={() => onApplyClick("Developer")}>
-          Online Application
+          {t("home.cta")}
         </button>
       </section>
 
@@ -242,8 +239,8 @@ function Home({ onApplyClick }: Props) {
           <path fill="#fff" fill-opacity="1" d="M0,128L48,112C96,96,192,64,288,42.7C384,21,480,11,576,32C672,53,768,107,864,117.3C960,128,1056,96,1152,74.7C1248,53,1344,43,1392,37.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
         </svg>
         <div className="hero-content idea-content" style={{ position: 'relative', zIndex: 2, width: '80%', maxWidth: '700px', margin: '0px 50px', padding: '20px', textAlign: 'left', marginRight: 'auto' }}>
-          <h2 style={{color:'#fff'}}>If you have the idea, we will find the right way</h2>
-          <p style={{color:'#fff'}}>We're here to inform which tactics need funding and which are drain resources. Real-time will have multiple touchpoints.</p>
+          <h2 style={{color:'#fff'}}>{t("home.ideaTitle")}</h2>
+          <p style={{color:'#fff'}}>{t("home.ideaText")}</p>
         </div>
 
         {/* <div className="available-positions">
@@ -270,16 +267,6 @@ function Home({ onApplyClick }: Props) {
         </svg>
       </section>
 
-      {/*section Clients */}
-      {/* <section className="text-center py-5 clients-section">
-        <h1>Our Clients</h1>
-        <p>We explore some of the latest trends and strategies</p>
-        <div>
-          <img src={ericsson} alt="partner" />
-          <img src={volvo} alt="partner" />
-        </div>
-      </section> */}
-
       {/*section available positions*/}
       <section className="text-center py-5 hero-section-overlay"  style={{
         display: 'flex',          
@@ -289,11 +276,9 @@ function Home({ onApplyClick }: Props) {
         position: 'relative', 
         minHeight: '60vh',
       }}>
-        <div className="hero-content positions-div" style={{ textAlign: 'center', zIndex: 2, height: '100%', maxHeight: '100vh', overflow: 'hidden'}}>
-          <h1>Be at the forefront of the new innovation</h1>
-          <p className="POSITION-HERO">Your goals are individual. We believe business advice should be too, so we help your business thrive in this work environment.</p>
-          {/* <button className="btn btn-dark mt-4" onClick={handleShowPositions}>View all available positions</button>
-          {showPositions && <AvailablePositions onApplyClick={handleShow} />} */}
+        <div className="hero-content positions-div" style={{ textAlign: 'center', zIndex: 2, height: '100%', overflow: 'hidden'}}>
+          <h1 style={{ fontSize: '23px'}}>{t("home.positionsTitle")}</h1>
+          <p className="POSITION-HERO">{t("home.positionsText")}</p>
           <AvailablePositions onApplyClick={handleShow} />
 
         </div>

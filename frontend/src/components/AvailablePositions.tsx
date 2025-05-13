@@ -3,9 +3,10 @@ import axios from 'axios';
 
 type AvailablePositionsProps = {
   onApplyClick:  (title: string) => void;
+  className?: string;
 };
 
-function AvailablePositions({ onApplyClick }: AvailablePositionsProps) {
+function AvailablePositions({ onApplyClick, className = "" }: AvailablePositionsProps) {
   const [positions, setPositions] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -25,7 +26,7 @@ function AvailablePositions({ onApplyClick }: AvailablePositionsProps) {
   }, []);
 
   return (
-    <div className="positions-container" style={{ padding: '2rem 0' }}>
+    <div className={`positions-container ${className}`} style={{ padding: '2rem 0' }}>
     {loading ? (
       <p>Laddar positioner...</p>
     ) : positions.length > 0 ? (
@@ -40,7 +41,6 @@ function AvailablePositions({ onApplyClick }: AvailablePositionsProps) {
           padding: '2rem',
           boxSizing: 'border-box',
           height: '100%',
-          overflowY: 'auto',
         }}
       >
         {positions.map((position) => (
@@ -54,7 +54,6 @@ function AvailablePositions({ onApplyClick }: AvailablePositionsProps) {
               borderRadius: '8px',
               textAlign: 'center',
               backgroundColor: '#f9f9f9',
-              minHeight: '200px',
             }}
           >
             <h3>{position.title}</h3>

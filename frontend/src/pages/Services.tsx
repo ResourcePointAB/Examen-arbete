@@ -22,15 +22,9 @@ import ServiceImage from '../assets/images/service.jpg';
 import TalantImage from '../assets/images/talant.jpg';
 import WorkImage from '../assets/images/work.jpg';
 import AvailablePositions from '../components/AvailablePositions'; 
+import { useTranslation } from 'react-i18next';
 
-const serviceBoxes = [
-  { id: 1, image: img1, title: "Strategic Consulting Services", description: "Enterprise Architects", link: "/services/1" },
-  { id: 2, image: img2, title: "Service 2", description: "Software Developers", link: "/services/2" },
-  { id: 3, image: img3, title: "Service 3", description: "Project Managers", link: "/services/3" },
-  { id: 4, image: img4, title: "Service 4", description: "Scrum Masters", link: "/services/4" },
-  { id: 5, image: img5, title: "Service 5", description: "Quality Assurance", link: "/services/5" },
-  { id: 6, image: img6, title: "Service 6", description: "Product Owners", link: "/services/6" }
-];
+
 
 function Services() {
   const [showPositions, setShowPositions] = useState(false);
@@ -42,6 +36,17 @@ function Services() {
   const handleApplyClick = (title: string) => {
     console.log(`Ansökan för position: ${title}`);
   };
+
+  const { t } = useTranslation();
+
+  const serviceBoxes = [
+    { id: 1, image: img1, title: "Strategic Consulting Services", description: t("services.sevicesList.architects"), link: "/services/1" },
+    { id: 2, image: img2, title: "Service 2", description: t("services.sevicesList.it"), link: "/services/2" },
+    { id: 3, image: img3, title: "Service 3", description: t("services.sevicesList.manager"), link: "/services/3" },
+    { id: 4, image: img4, title: "Service 4", description: t("services.sevicesList.scrum"), link: "/services/4" },
+    { id: 5, image: img5, title: "Service 5", description: t("services.sevicesList.quality"), link: "/services/5" },
+    { id: 6, image: img6, title: "Service 6", description: t("services.sevicesList.owner"), link: "/services/6" }
+  ];
 
   return (
     <div className="container service-container">
@@ -57,7 +62,7 @@ function Services() {
           }}>
           <Col>
             <h1 style={{marginTop:"70px"}}>SERVICES</h1>
-            <p>We provide a wide range of services to help you achieve your business goals.</p>
+            <p>{t("services.description")}</p>
             <div className="service-svg">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f7f4f0" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,197.3C384,213,480,267,576,282.7C672,299,768,277,864,245.3C960,213,1056,171,1152,138.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>            
             </div>
@@ -95,31 +100,31 @@ function Services() {
         </Row> */}
       </section>
 
-      {/* Tredje sektionen*/}
+      {/* services*/}
       <section className="info-section">
         <Row className="text-center my-5">
           <Col>
-            <h1>Capitalizing on the Real World Experience</h1>
-            <p>We explore some of the latest trends and strategies.</p>
+            <h1>{t("services.experience")}</h1>
+            <p>{t("services.Strategic")}</p>
           </Col>
         </Row>
         <Row className="info-boxes">
           <Col xs={12} sm={6} md={4} className="info-box">
             <img src={ServiceImage} alt="IT Consultancy & Solutions" className="service-image" /> 
-            <h3>Private individuals products & services</h3>
-            <p>Leverage agile frameworks to provide a robust synopsis for high level overviews iterative indicators offline.</p>
+            <h3>{t("services.itConsulting.title")}</h3>
+            <p>{t("services.itConsulting.description")}</p>
             <Link to="/singleService/individuals">Read More</Link>
           </Col>
           <Col xs={12} sm={6} md={4} className="info-box">
             <img src={TalantImage} alt="HR On-Demand Subscription" className="service-image" />
-            <h3>Small & medium business clients aquisition</h3>
-            <p>Organically grow the holistic world view of disruptive innovation via workplace diversity will have multiple.</p>
+            <h3>{t("services.business.title")}</h3>
+            <p>{t("services.business.description")}</p>
             <Link to="/singleService/business">Read More</Link>
           </Col>
           <Col xs={12} sm={6} md={4} className="info-box">
             <img src={WorkImage} alt="Training & Development" className="service-image" />
-            <h3>Corporate clients & services</h3>
-            <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.</p>
+            <h3>{t("services.clients.title")}</h3>
+            <p>{t("services.clients.description")}</p>
             <Link to="/singleService/corporate">Read More</Link>
           </Col>
         </Row>
@@ -185,7 +190,7 @@ function Services() {
         </Row>
       </section>
 
-      {/* 5 sektionen: CTA */}
+      {/* CTA */}
       <section className="cta-section-container">
         <Row className="cta-svg" style={{ position: "relative", top: "0", left: "0", width: "100%", height: "100%", zIndex: "1" }}>
           <Col>
@@ -198,12 +203,12 @@ function Services() {
         </Row>
         <Row className="cta-section text-center ">
           <Col md={5}>
-            <img src={services} alt="Business Stats" className="img-fluid" />
+            <img src={services} alt="Business Stats" className="img-fluid service-cta-img" />
           </Col>
           <Col md={5} className="cta-text">
-            <h2>If you have the idea, we will find the right way</h2>
-            <Button variant="secondary" onClick={handleShowPositions}>View All Available Positions</Button>
-            {showPositions && <AvailablePositions onApplyClick={handleApplyClick}/>}
+            <h2>{t("services.idea")}</h2>
+            <Button className="cta-btn-service" variant="secondary" onClick={handleShowPositions}>{t("services.button")}</Button>
+            {showPositions && <AvailablePositions onApplyClick={handleApplyClick} className="service-page-positions"/>}
           </Col>
         </Row>
       </section>

@@ -1,14 +1,130 @@
 {
-    "home": {
-      "welcome": "Welcome to Resource Point",
-      "services": "Our Services"
-    },
     "header": {
       "home": "Home",
       "about": "About Us",
       "services": "Our Services",
       "blog": "Blog",
       "contact": "Contact"
+    },
+    "home": {
+    "vision": "Your Vision.",
+    "passion": "Our Passion.",
+    "lead": "Resource Point has the IT experts you need.",
+    "skilledTitle": "Skilled and experienced consultants",
+    "skilledIntro": "We are a reputed consultant company in Gothenburg with experience of more than 25 years.",
+    "skilledDescription": "Our core strengths are in supplying skilled and experienced consultants at competitive prices. We provide everything from coders fresh out of school to experienced system architects for short or long-term contracts. If you need competence that is hard or impossible to find in Sweden, we can provide that through our partners.",
+    "services":{
+       "Strategic": "Strategic IT Consulting",
+       "Strategic1": "Cloud Solutions",
+       "Strategic2": "Cybersecurity",
+       "Strategic3": "Managed IT Services",
+       "Strategic4": "Data Analytics"
+    },
+    "servicesList": {
+        "it": "IT Consultancy & Solutions",
+        "hr": "HR On-Demand Subscription",
+        "training": "Training & Development",
+        "additional": "Additional Service"
+    },
+    "stepsTitle": "Steps of Recruitment Process",
+    "stepsIntro": "We guide you through every step to find the best talent.",
+    "steps": {
+        "step1": "Identify Job Opening",
+        "step2": "Recruit and Interview",
+        "step3": "Select Candidate",
+        "step4": "Onboard and Start"
+    },
+    "cta": "Online Application",
+    "ideaTitle": "If you have the idea, we will find the right way",
+    "ideaText": "We're here to inform which tactics need funding and which are drain resources. Real-time will have multiple touchpoints.",
+    "positionsTitle": "Be at the forefront of the new innovation",
+    "positionsText": "Your goals are individual. We believe business advice should be too, so we help your business thrive in this work environment."
+    },
+    "about": {
+        "title": "ABOUT",
+        "description": "Headquartered in Göteborg, the western gateway to Sweden, Resource Point AB is a 20+ year old firm, providing software solutions, services and resources to firms in Scandinavia.",
+        "sectionTwoTitle": "Resource Point AB",
+        "sectionTwoDescription": "Resource Point is a distinguished consulting company with its roots firmly planted in the vibrant city of Gothenburg, Sweden. Established in 1997, Resource Point has been a trusted partner for organizations seeking innovative solutions and expert guidance in a rapidly evolving business landscape. With over two decades of experience, the company has built a reputation for excellence in providing strategic insights, tailored recommendations, and practical implementation support across various industries.",
+        "sectionTwoDescription2":"Resource Point AB is your trusted consulting partner, dedicated to helping you unlock your full potential and achieve sustainable growth. With a wealth of experience and a team of experts in various domains, we specialize in providing tailored solutions and strategic guidance to organizations across industries.",
+        "internship": "Internship program",
+        "internshipDescription": "We have a running collaboration with IT-Högskolan i Väst, where we take in a group of students and give them real assignments to build IT applications for their internship. That gives them real experience from worklife and we support them with expertise from our senior consultants at the same time as we are getting to know them personally. We also help them with what it takes to get assignments as consultants or their first job, when they graduate.",
+        "timeline": {
+            "title": "Expertise:",
+            "event": "Our team of experienced consultants brings a wealth of knowledge and expertise to every project, ensuring successful outcomes.",
+            "title1": "Client-centric Approach:",
+            "event1": "We prioritize your unique needs and business objectives, tailoring solutions that fit your organization perfectly.",
+            "title2": "Innovation:",
+            "event2": "We stay at the forefront of technology trends to provide you with cutting-edge solutions that give you a competitive advantage.",
+            "title3": "Reliability",
+            "event3": "Count on us for dependable, 24/7 support and proactive monitoring to keep your systems running smoothly.",
+            "event4": "Today we are a consultancy company providing competent candidates for both the private and the public sector"
+        },
+        "info":"The operational processes are what drives the business",
+        "sendCv":"Apply for the internship"
+    },
+    "services": {
+        "description": "We provide a wide range of services to help you achieve your business goals.",
+        "experience": "Capitalizing on the Real World Experience",
+        "Strategic": "We explore some of the latest trends and strategies.",
+        "itConsulting": {
+            "title": "Private individuals products & services",
+            "description": "Leverage agile frameworks to provide a robust synopsis for high level overviews iterative indicators offline."
+        },
+        "business": {
+            "title": "Small & medium business clients aquisition",
+            "description": "Organically grow the holistic world view of disruptive innovation via workplace diversity will have multiple."
+        },
+        "clients": {
+            "title": "Corporate clients & services",
+            "description": "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day."
+        },
+        "sevicesList": {
+            "architects": "Enterprise Architects",
+            "it": "Software Developers",
+            "manager": "project Managers",
+            "scrum": "Scrum Masters",
+            "quality": "Quality Assurance",
+            "owner": "project Owners"
+        },
+        "idea":"If you have the idea, we will find the right way",
+        "button":"View all available positions"
+    },
+    "blog": {
+        "title": "LATEST NEWS",
+        "description": "Explore our content to stay informed and connected with the innovative ideas shaping our industry."
+    },
+    "contact": {
+        "title": "CONTACT US",
+        "description": "Leave us a little info, and we'll be in touch.",
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "phone": "phone",
+            "subject": "subject",
+            "message": "Meddelande",
+            "submit": "Send message"
+        },
+        "help": "How can er help you out?",
+        "answer": "Reach out to us in the only office.",
+        "titlehour": "working Hours",
+        "time": "We are open Monday to Friday."
+
+    },
+    "footer": {
+        "about": "Om Oss",
+        "services": "Våra Tjänster",
+        "blog": "Blogg",
+        "contact": "Kontakt",
+        "privacyPolicy": "Integritetspolicy",
+        "termsOfService": "Användarvillkor",
+        "socialMedia": {
+            "title": "Följ Oss",
+            "facebook": "Facebook",
+            "twitter": "Twitter",
+            "linkedin": "LinkedIn"
+        }
+
     }
+
   }
   

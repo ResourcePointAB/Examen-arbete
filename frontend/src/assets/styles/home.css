@@ -253,7 +253,7 @@ ul li {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 30px;
-  margin-top: 160px;
+  margin-top: 100px;
   color: rgb(39, 37, 37);
   animation: slideInFromLeft 1s ease-out;
 }
@@ -446,6 +446,11 @@ input[type="file"]::file-selector-button:hover {
   .background-section {
     max-height: 800px !important;
   }
+
+  .hero-content.idea-content h2{
+    font-size: 3.5rem;
+    margin-top: 200px !important;
+  }
 }
 
 @media (min-width: 1400px) and (max-width: 1600px) {
@@ -457,6 +462,12 @@ input[type="file"]::file-selector-button:hover {
   .idea-home-section{
     min-height: 70vh !important;
   }
+
+  .hero-content.idea-content h2{
+    font-size: 3rem;
+    margin-top: 160px !important;
+  }
+
 }
 
 @media (min-width: 1200px) and (max-width: 1399.99px) {
@@ -477,6 +488,16 @@ input[type="file"]::file-selector-button:hover {
     text-align:left;
     width: 35vw;
   }
+
+  .hero-content.idea-content h2{
+    font-size: 2.8rem;
+    margin-top: 100px !important;
+  }
+
+  .hero-content.positions-div{
+    margin-top: -20px !important;
+  }
+
 }
 
 @media (min-width: 992px) and (max-width: 1199.99px) {
@@ -506,6 +527,16 @@ input[type="file"]::file-selector-button:hover {
   .wave{
     max-width: none !important;
   }
+
+  .hero-content.idea-content h2{
+    font-size: 2.5rem;
+    margin-top: 100px !important;
+  }
+
+  .hero-content.positions-div{
+    margin-top: -20px !important;
+  }
+
 } 
 
 @media (min-width: 768px) and (max-width: 991.99px) {
@@ -568,6 +599,16 @@ input[type="file"]::file-selector-button:hover {
     gap: 20px;
     margin-top: -70px !important;
   }
+
+  .hero-content.idea-content h2{
+    font-size: 2.5rem;
+    margin-top: 90px !important;
+  }
+
+  .hero-content.positions-div{
+    margin-top: -20px !important;
+  }
+
 }
 
 @media (min-width: 576px) and (max-width: 767.99px) {
@@ -706,6 +747,12 @@ input[type="file"]::file-selector-button:hover {
     gap: 10px;
     margin-top: -80px;
   }
+
+  .hero-content.idea-content h2{
+    font-size: 2.5rem;
+    margin-top: 90px !important;
+  }
+
 }
 
 @media (max-width: 575.99px) {
@@ -843,7 +890,9 @@ input[type="file"]::file-selector-button:hover {
   .positions-grid{
     display: grid;
     grid-template-columns: repeat(1, 1fr) !important;
-    gap: 10px;
+    margin-left: 13%;
+    justify-content: center;
+    gap: 2px;
     margin-top: -80px;
     height: 100% !important;
   }
@@ -861,9 +910,17 @@ input[type="file"]::file-selector-button:hover {
   }
 
   .position-box {
-    width: 100%;
-    margin-bottom: -22px;
-    height: 260px;
+    width: 60%;
+  }
+
+  .position-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px !important;
+  }
+
+  .position-box p {
+    font-size: 0.9rem;
+    margin-bottom: 7px !important;
   }
 
   .process-step{
@@ -879,6 +936,12 @@ input[type="file"]::file-selector-button:hover {
   }
 
   .idea-content h2{
+    font-size: 25px;
     margin-top: 60px !important;
+  }
+
+  .hero-content.idea-content h2{
+    font-size: 2.2rem;
+    margin-top: 70px !important;
   }
 }

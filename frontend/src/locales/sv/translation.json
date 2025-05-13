@@ -7,8 +7,123 @@
       "contact": "Kontakt"
     },
     "home": {
-      "welcome": "Välkommen till Resource Point",
-      "services": "Våra Tjänster"
+        "vision": "Din Vision.",
+        "passion": "Vår Passion.",
+        "lead": "Resource Point har IT-experterna du behöver.",
+        "skilledTitle": "Kompetenta och erfarna konsulter",
+        "skilledIntro": "Vi är ett välrenommerat konsultföretag i Göteborg med över 25 års erfarenhet.",
+        "skilledDescription": "Våra kärnkompetenser ligger i att tillhandahålla kompetenta och erfarna konsulter till konkurrenskraftiga priser. Vi erbjuder allt från programmerare som är nyutexaminerade till erfarna systemarkitekter för kort- eller långsiktiga uppdrag. Om du behöver kompetens som är svår eller omöjlig att hitta i Sverige kan vi tillhandahålla det genom våra partners.",
+        "services":{
+            "Strategic": "Strategisk IT-konsulting",
+            "Strategic1": "Molnlösningar",
+            "Strategic2": "Cybersäkerhet",
+            "Strategic3": "Hanterade IT-tjänster",
+            "Strategic4": "Dataanalys"
+         },
+         "servicesList": {
+            "it": "IT-konsulttjänster & Lösningar",
+            "hr": "HR-prenumeration",
+            "training": "Utbildning & Utveckling",
+            "additional": "Ytterligare tjänster"
+        },
+        "stepsTitle": "Rekryteringsprocessens steg",
+        "stepsIntro": "Vi guidar dig genom varje steg för att hitta rätt talang.",
+        "steps": {
+            "step1": "Identifiera tjänst",
+            "step2": "Rekrytera och intervjua",
+            "step3": "Välj kandidat",
+            "step4": "Introduktion och start"
+        },
+        "cta": "Online Ansökan",
+        "ideaTitle": "Om du har en idé, hittar vi rätt väg",
+        "ideaText": "Vi är här för att informera om vilka taktiker som behöver finansiering och vilka som dränerar resurser. Realtid kommer att ha flera kontaktpunkter.",
+        "positionsTitle": "Var i framkant av ny innovation",
+        "positionsText": "Dina mål är individuella. Vi tror att affärsrådgivning också borde vara det, så vi hjälper ditt företag att blomstra i denna arbetsmiljö."
+    },
+    "about": {
+        "title": "OM Oss",
+        "description": "Med huvudkontor i Göteborg, Västsveriges port, är Resource Point AB ett företag med över 20 års erfarenhet som levererar mjukvarulösningar, tjänster och resurser till företag i Skandinavien.",
+        "sectionTwoTitle": "Resource Point AB",
+        "sectionTwoDescription": "Resource Point är ett framstående konsultföretag med sina rötter djupt förankrade i den livliga staden Göteborg, Sverige. Grundat 1997 har Resource Point varit en pålitlig partner för organisationer som söker innovativa lösningar och expertvägledning i en snabbt förändrad affärsmiljö. Med över två decennier av erfarenhet har företaget byggt upp ett rykte för excellens inom att tillhandahålla strategiska insikter, skräddarsydda rekommendationer och praktiskt implementeringsstöd inom olika branscher.",
+        "sectionTwoDescription2":"Resource Point AB är din pålitliga konsultpartner, dedikerad till att hjälpa dig låsa upp din fulla potential och uppnå hållbar tillväxt. Med en rik erfarenhet och ett team av experter inom olika områden specialiserar vi oss på att tillhandahålla skräddarsydda lösningar och strategisk vägledning till organisationer inom olika branscher.",
+        "internship": "Praktikprogram",
+        "internshipDescription": "Vi har ett pågående samarbete med IT-Högskolan i Väst, där vi tar in en grupp studenter och ger dem verkliga uppdrag för att bygga IT-applikationer under sin praktik. Det ger dem verklig erfarenhet från arbetslivet och vi stödjer dem med expertis från våra seniora konsulter samtidigt som vi lär känna dem personligen. Vi hjälper dem också med vad som krävs för att få uppdrag som konsulter eller deras första jobb när de examineras.",
+        "timeline": { 
+                "title": "Expertis:",
+                "event": "Vårt team av erfarna konsulter har en stor kunskap och expertis inom varje projekt, vilket säkerställer framgångsrika resultat.",
+                "title1": "Kundcentrerad strategi:",
+                "event1": "Vi prioriterar dina unika behov och affärsmål, och skräddarsyr lösningar som passar din organisation perfekt.",
+                "title2": "Innovation",
+                "event2": "Vi strävar efter att ligga i framkant av teknologiska framsteg och implementera innovativa lösningar som driver din verksamhet framåt.",
+                "title3": "Kvalitet och pålitlighet:",
+                "event3": "Räkna med oss för pålitlig support dygnet runt och proaktiv övervakning som håller dina system igång utan avbrott.",
+                "event4": " Idag är vi ett konsultföretag som levererar kompetenta kandidater till både den privata och den offentliga sektorn."
+        },
+        
+        "info":"De operativa processerna är det som driver verksamheten",
+        "sendCv":"Ansök om praktik"
+     },
+    "services": {
+        "description": "Vi erbjuder skräddarsydda IT-lösningar och konsulttjänster som passar dina behov.",
+        "experience": "Dra nytta av verklig erfarenhet",
+        "Strategic": "Vi utforskar de senaste trenderna och strategierna.",
+        "itConsulting": {
+            "title": "Produkter och tjänster för privatpersoner",
+            "description": "Utnyttja agila ramverk för att ge en robust översikt av övergripande indikatorer offline."
+        },
+        "business": {
+            "title": "Förvärv av små och medelstora företagskunder",
+            "description": "Organiskt växa den holistiska världsbilden av disruptiv innovation via mångfald på arbetsplatsen kommer att ha flera."
+        },
+        "clients": {
+            "title": "Företagskunder och tjänster",
+            "description": "Ta med dig överlevnadsstrategier som säkerställer proaktiv dominans. I slutet av dagen."
+        },
+        "sevicesList": {
+            "architects": "Enterprise Arkitekter",
+            "it": "Mjukvaruutvecklare",
+            "manager": "Projektledare",
+            "scrum": "Scrum-mästare",
+            "quality": "Kvalitetssäkring",
+            "owner": "Projektägare"
+        },
+        "idea":"Om du har en idé, hittar vi rätt väg",
+        "button":"Visa alla tillgängliga tjänster"
+    },
+    "blog": {
+        "title": "SENASTE NYHETER",
+        "description": "Håll dig uppdaterad med våra senaste nyheter och insikter."
+    },
+    "contact": {
+        "title": "KONTAKTA OSS",
+        "description": "Lämna oss lite information så hör vi av oss.",
+        "form": {
+            "name": "Namn",
+            "email": "E-post",
+            "phone": "Telefon",
+            "subject": "Ämne",
+            "message": "Meddelande",
+            "submit": "Skicka meddelande"
+        },
+        "help": "Hur kan vi hjälpa dig?",
+        "answer": "Kontakta oss på vårt enda kontor.",
+        "titlehour": "Arbetstider:",
+        "time": "Vi har öppet måndag till fredag."
+    },
+    "footer": {
+        "about": "Om Oss",
+        "services": "Våra Tjänster",
+        "blog": "Blogg",
+        "contact": "Kontakt",
+        "privacyPolicy": "Integritetspolicy",
+        "termsOfService": "Användarvillkor",
+        "socialMedia": {
+            "title": "Följ Oss",
+            "facebook": "Facebook",
+            "twitter": "Twitter",
+            "linkedin": "LinkedIn"
+        }
+
     }
-  }
+}
   

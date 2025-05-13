@@ -58,7 +58,7 @@ function Header() {
           <FaSearch size={20} />
         </div>
 
-        <Navbar.Toggle aria-controls="navbar-nav"  className=" mx-5" onClick={() => setExpanded(!expanded)}/>
+        <Navbar.Toggle aria-controls="navbar-nav" className="mx-5" style={{ backgroundColor: 'black', borderColor: 'black' }} onClick={() => setExpanded(!expanded)}/>
 
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto align-items-center mx-5">
