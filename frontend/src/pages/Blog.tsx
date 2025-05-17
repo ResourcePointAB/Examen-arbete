@@ -19,6 +19,8 @@ function Blog() {
 
   useEffect(() => {
     //API-anrop till backend som hanterar LinkedIn API-anropen
+    // fetch('https://resourcepoint.se/api/linkedinPosts')
+
     fetch('http://localhost:5000/api/linkedinPosts')
       .then(response => response.json())
       .then((data: LinkedInPost[]) => {

@@ -47,16 +47,20 @@ form {
 
 .map-responsive {
   overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
-  height: 0;
+  height: 200px !important;
+  width: 80vw;
+  padding-bottom: 50%;
+  position: relative; 
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .map-responsive iframe {
   height: 40%;
-  width: 80%;
+  width: 50%;
   position: absolute;
   border-radius: 8px;
-  left: 10%;
+  left: 20%;
 }
 
 .map-section{
@@ -95,13 +99,6 @@ form {
   border: 1px solid #212529 !important;
 }
 
-.map-responsive{  
-  height: 200px !important;
-  width: 80vw;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .contact-title{
   font-size: 2rem;
   font-weight: 600;
@@ -117,14 +114,7 @@ form {
     height: 60vh !important;
   }
 
-  .map-responsive iframe {
-    height: 40%;
-    width: 50%;
-    position: absolute;
-    border-radius: 8px;
-    margin-left: 10%;
-  }
-
+ 
   .contact-info{
     margin-left: 10px;
     margin-top: 15px;

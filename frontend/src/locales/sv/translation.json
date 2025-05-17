@@ -22,7 +22,7 @@
          },
          "servicesList": {
             "it": "IT-konsulttjänster & Lösningar",
-            "hr": "HR-prenumeration",
+            "hr": "IT-drift och support",
             "training": "Utbildning & Utveckling",
             "additional": "Ytterligare tjänster"
         },
@@ -53,7 +53,7 @@
                 "event": "Vårt team av erfarna konsulter har en stor kunskap och expertis inom varje projekt, vilket säkerställer framgångsrika resultat.",
                 "title1": "Kundcentrerad strategi:",
                 "event1": "Vi prioriterar dina unika behov och affärsmål, och skräddarsyr lösningar som passar din organisation perfekt.",
-                "title2": "Innovation",
+                "title2": "Innovation:",
                 "event2": "Vi strävar efter att ligga i framkant av teknologiska framsteg och implementera innovativa lösningar som driver din verksamhet framåt.",
                 "title3": "Kvalitet och pålitlighet:",
                 "event3": "Räkna med oss för pålitlig support dygnet runt och proaktiv övervakning som håller dina system igång utan avbrott.",
@@ -111,19 +111,42 @@
         "time": "Vi har öppet måndag till fredag."
     },
     "footer": {
-        "about": "Om Oss",
-        "services": "Våra Tjänster",
-        "blog": "Blogg",
+        "links": "Snabblänkar",
+        "home": "Hem",
+        "about": "Om Oss",  
+        "services": "Våra Tjänster",  
         "contact": "Kontakt",
-        "privacyPolicy": "Integritetspolicy",
-        "termsOfService": "Användarvillkor",
-        "socialMedia": {
-            "title": "Följ Oss",
-            "facebook": "Facebook",
-            "twitter": "Twitter",
-            "linkedin": "LinkedIn"
+        "socialMedia": "Sociala Medier"
+    },
+    "search": {
+        "title": "Sökresultat",
+        "youSearchedFor": "Du sökte efter",
+        "readMore": "Läs mer",
+        "noResults": "Inga resultat hittades."
+    },
+    "servicesingle": {
+        "individuals": {
+        "title": "Privata individers produkter och tjänster",
+        "description": "Vi erbjuder skräddarsydda digitala lösningar för individer, inklusive ekonomisk planering, teknisk support och personlig utveckling."
+        },
+        "business": {
+        "title": "Små och medelstora företag",
+        "description": "Vi stödjer småföretag med anpassad programvara, CRM-integration och strategisk rådgivning för hållbar tillväxt."
+        },
+        "corporate": {
+        "title": "Företagskunder & tjänster",
+        "description": "Stöd på företagsnivå för digital transformation, säkerhet, infrastruktur och utbildning."
         }
-
-    }
+    },
+    "positions": {
+    "frontendTitle": "Frontendutvecklare",
+    "frontendDesc": "Arbeta med moderna JavaScript-ramverk för att bygga användarvänliga gränssnitt.",
+    "backendTitle": "Backendutvecklare",
+    "backendDesc": "Utveckla och underhåll serverlösningar med fokus på prestanda och säkerhet.",
+    "testerTitle": "Mjukvarutestare",
+    "testerDesc": "Testa och säkerställ kvaliteten på mjukvarulösningar genom automatiserade tester.",
+    "apply": "Ansök nu"
+  }
+    
 }
   

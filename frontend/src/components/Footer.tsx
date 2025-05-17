@@ -1,7 +1,12 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+// import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
+
 
 function Footer() {
+  const { t } = useTranslation();
+  
   return (
     <footer className="bg-dark text-white py-4">
       <Container>
@@ -9,15 +14,15 @@ function Footer() {
           <Col md={3}>
             <h5>Resource Point</h5>
             <div>
-              <h5 className="social-icone-footer">Social Media</h5>
+              <h5 className="social-icone-footer">{t("footer.socialMedia")}</h5>
               <div className="social-icons-footer d-flex text-start gap-3">
-                <a href="https://resourcepoint.se" target="_blank" rel="noopener noreferrer" className="icons text-white">
+                {/* <a href="https://resourcepoint.se" target="_blank" rel="noopener noreferrer" className="icons text-white">
                   <FaFacebookF />
                 </a>
                 <a href="https://resourcepoint.se" target="_blank" rel="noopener noreferrer" className="icons text-white">
                   <FaTwitter />
-                </a>
-                <a href="https://www.linkedin.com/company/resourcepoint" target="_blank" rel="noopener noreferrer" className="icons text-white">
+                </a> */}
+                <a href="https://www.linkedin.com/company/resource-point-ab" target="_blank" rel="noopener noreferrer" className="icons text-white border border-white rounded-circle w-10 h-10 px-1">
                   <FaLinkedinIn />
                 </a>
               </div>
@@ -25,20 +30,20 @@ function Footer() {
           </Col>
 
           <Col md={3}>
-            <h5>Quick Links</h5>
+            <h5>{t("footer.links")}</h5>
             <ul className="list-unstyled">
-              <li><a href="/" className="text-white text-decoration-none">Home</a></li>
-              <li><a href="/about" className="text-white text-decoration-none">About</a></li>
-              <li><a href="/services" className="text-white text-decoration-none">Services</a></li>
-              <li><a href="/contact" className="text-white text-decoration-none">Contact</a></li>
+              <li><a href="/" className="text-white text-decoration-none">{t("footer.home")}</a></li>
+              <li><a href="/about" className="text-white text-decoration-none">{t("footer.about")}</a></li>
+              <li><a href="/services" className="text-white text-decoration-none">{t("footer.services")}</a></li>
+              <li><a href="/contact" className="text-white text-decoration-none">{t("footer.contact")}</a></li>
             </ul>
           </Col>
 
           <Col md={3}>
-            <h5>Contact</h5>
-            <p>Phone: +46 123 456 789</p>
+            <h5>{t("footer.contact")}</h5>
+            <p>Phone: +46 70 440 31 70</p>
             <p>Email: info@resourcepoint.se</p>
-            <p>Address: Stora badhusgatan 18, 411 21, Gothenburg</p>
+            <p>Address: Stora Badhusgatan 18, 411 21, Göteborg</p>
           </Col>
         </Row>
 

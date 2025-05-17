@@ -22,7 +22,7 @@
     },
     "servicesList": {
         "it": "IT Consultancy & Solutions",
-        "hr": "HR On-Demand Subscription",
+        "hr": "IT operations and support",
         "training": "Training & Development",
         "additional": "Additional Service"
     },
@@ -108,23 +108,43 @@
         "answer": "Reach out to us in the only office.",
         "titlehour": "working Hours",
         "time": "We are open Monday to Friday."
-
     },
     "footer": {
-        "about": "Om Oss",
-        "services": "Våra Tjänster",
-        "blog": "Blogg",
-        "contact": "Kontakt",
-        "privacyPolicy": "Integritetspolicy",
-        "termsOfService": "Användarvillkor",
-        "socialMedia": {
-            "title": "Följ Oss",
-            "facebook": "Facebook",
-            "twitter": "Twitter",
-            "linkedin": "LinkedIn"
+        "links": "Quick Links",
+        "home": "Home",
+        "about": "About",  
+        "services": "Services",  
+        "contact": "Contact",
+        "socialMedia": "Social Media"
+    },
+    "search": {
+        "title": "Search Results",
+        "youSearchedFor": "You searched for",
+        "readMore": "Read more",
+        "noResults": "No results found."
+    },
+    "servicesingle": {
+        "individuals": {
+        "title": "Private Individuals Products & Services",
+        "description": "We offer tailored digital solutions for individuals including financial planning, tech support and personal development tools."
+        },
+        "business": {
+        "title": "Small & Medium Business Clients Acquisition",
+        "description": "We support SMEs with customized software, CRM integration, and strategic consultancy to help scale sustainably."
+        },
+        "corporate": {
+        "title": "Corporate Clients & Services",
+        "description": "Enterprise-level support for digital transformation, security, infrastructure optimization and training services."
         }
-
-    }
-
+    },
+    "positions": {
+    "frontendTitle": "Frontend Developer",
+    "frontendDesc": "Work with modern JavaScript frameworks to build user-friendly interfaces.",
+    "backendTitle": "Backend Developer",
+    "backendDesc": "Develop and maintain server-side solutions with focus on performance and security.",
+    "testerTitle": "Software Tester",
+    "testerDesc": "Test and ensure software quality through automated testing.",
+    "apply": "Apply Now"
   }
+}
   

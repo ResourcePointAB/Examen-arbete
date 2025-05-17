@@ -6,6 +6,11 @@
   margin-top: 0px;
 }
 
+/* section {
+  height: 500px !important;
+  overflow: auto;
+} */
+
 .bt_bb_section {
   margin-top: 40px;
   width: 100%;
@@ -910,7 +915,7 @@ input[type="file"]::file-selector-button:hover {
   }
 
   .position-box {
-    width: 60%;
+    width: 70%;
   }
 
   .position-box h3 {

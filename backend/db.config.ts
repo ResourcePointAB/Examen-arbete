@@ -25,9 +25,7 @@ async function initializeDB(): Promise<Database> {
       title TEXT NOT NULL,
       department TEXT,
       location TEXT,
-      description TEXT,
-      applicationDeadline DATE,
-      salary INTEGER
+      description TEXT
     );
   `);
 

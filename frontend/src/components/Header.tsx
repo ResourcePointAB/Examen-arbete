@@ -43,7 +43,6 @@ function Header() {
     <Navbar ref={navbarRef} expand="lg"   style={{ backgroundColor: '#f7f4f0' }}
     variant="dark" className="shadow-sm py-2" expanded={expanded}>
       <Container>
-       
         <Navbar.Brand as={Link} to="/">
           <img
             src={LogoImage}

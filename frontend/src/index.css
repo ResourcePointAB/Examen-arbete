@@ -68,3 +68,17 @@ button:focus-visible {
     background-color: #ffffff;
   }
 }
+
+@media (max-width: 575.99px) {
+  .navbar-brand{
+    width: 100%;
+    max-width: 100px;
+    height: 100%;
+    margin: 0px 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+

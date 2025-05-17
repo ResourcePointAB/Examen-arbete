@@ -7,15 +7,19 @@ import path from 'path';
 import dbPromise from './db.config'; 
 import dotenv from 'dotenv';
 import linkedinRouter from './linkedinPosts';
+import contactRoute from './contactRoute';
+import authRoutes from './auth';
 dotenv.config(); 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
-app.use('/api', linkedinRouter);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/api', linkedinRouter);
+app.use('/api/contact', contactRoute);
+app.use('/api', authRoutes);
 
 app.get('/', (req, res) => {
   res.send('Välkommen till servern!');
@@ -69,8 +73,8 @@ interface ApplicationData {
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: process.env.REACT_APP_EMAIL_USER,
+    pass: process.env.REACT_APP_EMAIL_PASS,
   },
 });
 
@@ -127,8 +131,8 @@ app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response):
     // --------5- Skicka e-post till företaget --------
     const positionTitle = req.body.positionTitle;
     const mailOptions = {
-      from: `"Jobbansökan" <${process.env.EMAIL_USER}>`,
-      to: 'anahita.einbeigi@gmail.com', 
+      from: `"Jobbansökan" <${process.env.REACT_APP_EMAIL_USER}>`,
+      to: process.env.REACT_APP_EMAIL_RECEIVER, 
       subject: `Ny ansökan från ${firstName} ${lastName}`,
       html: `
         <h3>Ny ansökan mottagen</h3>
