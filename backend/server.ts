@@ -6,9 +6,10 @@ import fs from 'fs';
 import path from 'path';
 import dbPromise from './db.config'; 
 import dotenv from 'dotenv';
-import linkedinRouter from './linkedinPosts';
 import contactRoute from './contactRoute';
 import authRoutes from './auth';
+import linkedinRouter from './linkedinPosts';
+
 dotenv.config(); 
 
 const app = express();

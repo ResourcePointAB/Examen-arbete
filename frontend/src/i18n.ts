@@ -5,12 +5,12 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import translationEN from "./locales/en/translation.json";
 import translationSV from "./locales/sv/translation.json";
 
-// Definiera översättningarna för varje språk
 const resources = {
   en: { translation: translationEN },
   sv: { translation: translationSV }
 };
 
+// Konfigurerar i18next för att hantera flerspråkighet med automatisk språkdetektering och React-stöd.
 i18n
   .use(LanguageDetector) 
   .use(initReactI18next) 

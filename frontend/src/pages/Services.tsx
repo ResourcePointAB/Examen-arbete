@@ -51,11 +51,12 @@ function Services() {
   return (
     <div className="container service-container">
       {/* Andra sektionen */}
-      <section>
+      <section >
         <Row className="text-center py-5 services-header-1" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${serviceHero})`,
           backgroundSize: "cover",
           position: "relative",
           height: "60vh",
+          minHeight: "400px",
           backgroundPosition: "center 33%",
           backgroundRepeat: "no-repeat",
           overflow: "hidden",

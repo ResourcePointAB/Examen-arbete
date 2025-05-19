@@ -35,6 +35,12 @@
     color: white;
     cursor: pointer;
   }
+
+  .close-btn:hover {
+    background-color: transparent !important;
+    margin-top: -12px;
+    height: 57px;
+  }
   
   .search-container{
     height: 100vh;

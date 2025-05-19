@@ -2,36 +2,45 @@ import "../assets/styles/global.css";
 import "../assets/styles/blog.css";
 import { Row, Col} from "react-bootstrap";
 import blog from '../assets/images/blog.jpg';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-interface LinkedInPost {
-  id: string;
-  content: string;
-  imageUrl: string;
-  link: string;
-}
+// interface LinkedInPost {
+//   id: string;
+//   content: string;
+//   imageUrl: string;
+//   link: string;
+// }
 
 function Blog() {
   const { t } = useTranslation()
-  const [posts, setPosts] = useState<LinkedInPost[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+   const embeddedPosts: string[] = [
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7320104458787430401?collapsed=1" height="720" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7251506607916806144?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7320104458787430401" height="1623" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7251506607916806144?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7251506607916806144?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7251506607916806144?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+  ];
 
-  useEffect(() => {
+  // const [posts, setPosts] = useState<LinkedInPost[]>([]);
+  // const [loading, setLoading] = useState<boolean>(true);
+
+  // useEffect(() => {
     //API-anrop till backend som hanterar LinkedIn API-anropen
     // fetch('https://resourcepoint.se/api/linkedinPosts')
 
-    fetch('http://localhost:5000/api/linkedinPosts')
-      .then(response => response.json())
-      .then((data: LinkedInPost[]) => {
-        setPosts(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching LinkedIn posts:', error);
-        setLoading(false);
-      });
-  }, []);
+  //   fetch('http://localhost:5000/api/linkedinPosts')
+  //     .then(response => response.json())
+  //     .then((data: LinkedInPost[]) => {
+  //       setPosts(data);
+  //       setLoading(false);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching LinkedIn posts:', error);
+  //       setLoading(false);
+  //     });
+  // }, []);
 
   return (
     <div className="careers-page">
@@ -56,8 +65,24 @@ function Blog() {
           </Row>
       </section>
 
+      {/* LinkedIn embed-inlägg */}
+      <section className="linkedin-posts py-5">
+        <h2 className="text-center mb-4">Latest Linkedin Updates</h2>
+        <Row className="gx-4 gy-5 justify-content-center px-3">
+          {embeddedPosts.map((iframeCode, index) => (
+            <Col key={index} xs={12} md={6} lg={4}>
+              <div
+                className="linkedin-post-embed"
+                dangerouslySetInnerHTML={{ __html: iframeCode }}
+              />
+            </Col>
+          ))}
+        </Row>
+      </section>
+
+
       {/* LinkedIn-inlägg */}
-      <section className="linkedin-posts">
+      {/* <section className="linkedin-posts">
         <h2>Latest LinkedIn Updates</h2>
         {loading ? (
           <p>Loading posts...</p>
@@ -73,7 +98,7 @@ function Blog() {
         ) : (
           <p>No posts available at the moment.</p>
         )}
-      </section>
+      </section> */}
     </div>
   );
 }

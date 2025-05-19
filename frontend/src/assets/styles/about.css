@@ -132,7 +132,9 @@
 .timeline-content {
   background: #fff;
   padding: 15px 20px;
-  border-left: 3px solid #bec4b5;
+  /* border-left: 3px solid #bec4b5; */
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(to bottom, #9a9f93, #f2f4f2) 1;
   margin-top: 5px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
@@ -181,8 +183,8 @@
 
 .apply-btn:hover {
   background-color: #f1f1f1 !important;
-  color: #3c4939 !important;
-  border: 1px solid #3c4939 !important;
+  color: #5f8460 !important;
+  border: 1px solid #5f8460 !important;
 }
 
 /* ---------- RESPONSIVE MEDIA QUERIES ---------- */

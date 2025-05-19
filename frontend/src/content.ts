@@ -14,6 +14,7 @@ export const pageContents :Page[]= [
     path: '/',
     content: {
       en: `
+        Home
         Your Vision. Our Passion.
         Resource Point has the IT experts you need.
         Skilled and experienced consultants.
@@ -59,6 +60,7 @@ export const pageContents :Page[]= [
         Apply Now
       `,
       sv: `
+        Hem
         Din vision. Vår passion.
         Resource Point har IT-experterna du behöver.
         Kompetenta och erfarna konsulter
@@ -117,12 +119,12 @@ export const pageContents :Page[]= [
     path: '/blog',
     content: {
       en: `
-        LATEST NEWS, Explore our content to stay informed and connected with the innovative ideas shaping our industry.Latest LinkedIn Updates:
+        Blog, LATEST NEWS, Explore our content to stay informed and connected with the innovative ideas shaping our industry.Latest LinkedIn Updates:
 
 
       `,
       sv: `
-        SENASTE NYHETER, Håll dig uppdaterad med våra senaste nyheter och insikter. Latest LinkedIn Updates:
+        Blogg, SENASTE NYHETER, Håll dig uppdaterad med våra senaste nyheter och insikter. Latest LinkedIn Updates:
       `
     }
   },

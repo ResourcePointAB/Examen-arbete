@@ -1,14 +1,7 @@
-// src/components/LanguageSwitcher.tsx
 import { useTranslation } from 'react-i18next';
 
-const LanguageSwitcher = () => {
+function LanguageSwitcher() {
   const { i18n } = useTranslation();
-
-  const toggleLanguage = () => {
-    const newLang = i18n.language === 'sv' ? 'en' : 'sv';
-    i18n.changeLanguage(newLang);
-  };
-
   return (
     <div className="ms-3">
       {i18n.language === 'sv' ? (

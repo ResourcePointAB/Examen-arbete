@@ -12,7 +12,7 @@ function Footer() {
       <Container>
         <Row className="text-start mx-5">
           <Col md={3}>
-            <h5>Resource Point</h5>
+            {/* <h5>Resource Point</h5> */}
             <div>
               <h5 className="social-icone-footer">{t("footer.socialMedia")}</h5>
               <div className="social-icons-footer d-flex text-start gap-3">

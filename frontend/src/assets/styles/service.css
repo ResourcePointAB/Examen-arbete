@@ -302,13 +302,13 @@
 }
 
 .info-box a {
-  color: #007bff;;
+  color: #585858;
   font-weight: bold;
   text-decoration: none;
 }
 
 .info-box a:hover {
-  text-decoration: underline;
+  color: #5f8460;
 }
 
 /* === CTA Section === */
@@ -324,15 +324,23 @@
 }
 
 .cta-section Button {
-  font-size: 1.2rem;
-  padding: 10px 30px;
-  background-color: #333;
-  border: none;
-  color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    background-color: transparent;
+    color: #666;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .cta-section Button:hover {
-  background-color: #151715;
+  border-radius: 1px solid #5f8460;
+  background-color: #f7f6fa;
+  color: #5f8460;
+  border-color: #5f8460;
 }
 
 /* === Stats Section === */
@@ -443,6 +451,7 @@
   .carousel-container{
     height: auto;
     max-height: 70vh;
+    min-height: 400px;
   }
 
   .info-section{
@@ -587,10 +596,11 @@
   .carousel-container{
     height: auto;
     max-height: 50vh;
+    min-height: 400px;
   }
 
   .info-section{
-    height: 70vh;
+    min-height: 600px;
   }
 
   .info-boxes{
@@ -658,6 +668,16 @@
 }
 
 @media (min-width: 768px) and (max-width: 991.99px) {
+  .carousel-container{
+    height: auto;
+    max-height: 50vh;
+    min-height: 400px;
+  }
+
+  .info-section{
+    min-height: 600px;
+  }
+
   .service-container{
     width: 100vw;
   }
@@ -711,6 +731,16 @@
 
 /* === Breakpoints for larger screens === */
 @media (min-width: 992px) and (max-width: 1199.99px) {
+  .carousel-container{
+    height: auto;
+    max-height: 50vh;
+    min-height: 400px;
+  }
+
+  .info-section{
+    min-height: 600px;
+  }
+
   .service-container{
     width: 100vw;
   }
@@ -752,6 +782,16 @@
 }
 
 @media (min-width: 1200px) and (max-width: 1399.99px) {
+  .carousel-container{
+    height: auto;
+    max-height: 50vh;
+    min-height: 400px;
+  }
+
+  .info-section{
+    min-height: 600px;
+  }
+
   .service-box {
     max-width: 400px;
   }
@@ -789,6 +829,16 @@
 }
 
 @media (min-width: 1400px) and (max-width: 1600px) {
+  .carousel-container{
+    height: auto;
+    max-height: 50vh;
+    min-height: 400px;
+  }
+
+  .info-section{
+    min-height: 600px;
+  }
+
   .service-box {
     max-width: 420px;
   }
@@ -825,6 +875,16 @@
 }
 
 @media (min-width: 1600px) and (max-width: 1800px) {
+  .carousel-container{
+    height: auto;
+    max-height: 50vh;
+    min-height: 400px;
+  }
+
+  .info-section{
+    min-height: 600px;
+  }
+  
   .stats-svg-bottom{
     margin-top: -136px;
   }

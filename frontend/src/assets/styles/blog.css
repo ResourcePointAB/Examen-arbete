@@ -55,6 +55,24 @@
   padding: 20px;
 }
 
+.linkedin-post-embed {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0;
+}
+
+.linkedin-post-embed iframe {
+  width: 100%;
+  height: auto;
+  border: none;
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 245px;
+}
+
 /* tredje section */
 .careersIdea{
   display: flex;
@@ -77,6 +95,10 @@
 
 /* Responsive Typography */
 @media (min-width: 1600px) and (max-width: 1800px) {
+  .careers-hero{
+    height: 400px !important;  
+  }
+  
   .careers-consulting{
     height: 100%;
     display: flex;
@@ -84,13 +106,35 @@
   }
 }
 
+@media (min-width: 1400px) and (max-width: 1600px) {
+  .careers-hero{
+    height: 400px !important;  
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1399.99px) {
   .careers-hero{
-    height: 20vh !important;  
+    height: 400px !important;  
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.99px) {
+  .careers-hero{
+    min-height: 400px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.99px) {
+  .careers-hero{
+    min-height: 400px !important;
   }
 }
 
 @media (min-width: 576px) and (max-width: 767.99px) {
+  .careers-hero{
+    min-height: 400px !important;
+  }
+
   .careers-consulting img{
     width: 540px !important;
     padding: 20px 0px 0px 0px !important;
@@ -112,6 +156,10 @@
 }
 
 @media (max-width: 575.99px) {
+  .careers-hero{
+    min-height: 400px !important;
+  }
+
   .text-container p{
     padding: 0px 10px;
   }

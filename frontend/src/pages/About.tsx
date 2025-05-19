@@ -17,6 +17,7 @@ function About({ onApplyClick }: Props) {
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${AboutHero})`,
           backgroundSize: "cover",
           height: "70vh",
+          minHeight: "400px",
           backgroundPosition: "top center",
           backgroundRepeat: "no-repeat",
         }}>
@@ -93,19 +94,6 @@ function About({ onApplyClick }: Props) {
           </Row>
         </Container>
       </section>
-
-      {/* <section className="contact-section py-5">
-        <Container>
-          <Row className="text-center">
-            <Col md={12}>
-              <h2>{t("about.info")}</h2>
-              <Button variant="primary" size="lg" className="text-dark apply-btn" onClick={() => onApplyClick("General Position")}>
-              {t("about.sendCv")}
-              </Button>
-            </Col>
-          </Row>
-        </Container>
-      </section> */}
     </div>
   );
 }

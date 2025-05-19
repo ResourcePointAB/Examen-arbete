@@ -95,8 +95,25 @@ form {
 }
 
 .form-submit button{
-  background-color: #212529 !important;
+  background-color: #f4f8fb !important;
   border: 1px solid #212529 !important;
+  color: #212529 !important;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  background-color: transparent;
+  color: #666;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-submit button:hover {
+  border-radius: 1px solid #5f8460 !important;
+  background-color: #f7f6fa;
+  color: #666;
 }
 
 .contact-title{
@@ -107,13 +124,18 @@ form {
 
 /* Responsivitet */
 @media (min-width: 1400px) and (max-width: 1600px) {
+  .map-section{
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+  }
 
   .contactS1{
     width: 100%;
     max-width: 100vw;
     height: 60vh !important;
+    min-height: 400px;
   }
-
  
   .contact-info{
     margin-left: 10px;
@@ -130,6 +152,7 @@ form {
     justify-content: center;
     align-items: center;
     height: 50vh;
+    min-height: 260px;
   }
 
   .contactS1{
@@ -152,6 +175,7 @@ form {
     width: 100%;
     max-width: 100vw;
     height: 50vh !important;
+    min-height: 300px;
   }
 
   .map-responsive iframe {
@@ -177,12 +201,14 @@ form {
     justify-content: center;
     align-items: center;
     height: 40vh;
+    min-height: 220px;
   }
 
   .contactS1{
     width: 100%;
     max-width: 100vw;
     height: 50vh !important;
+    min-height: 300px;
   }
 
   .map-responsive iframe {
@@ -222,12 +248,14 @@ form {
     justify-content: center;
     align-items: center;
     height: 40vh;
+    min-height: 220px;
   }
 
   .contactS1{
     width: 100%;
     max-width: 100vw;
     height: 40vh !important;
+    min-height: 300px;
   }
 
   .map-responsive iframe {
@@ -267,12 +295,14 @@ form {
     justify-content: center;
     align-items: center;
     height: 50vh;
+    min-height: 240px;
   }
 
   .contactS1{
     width: 100%;
     max-width: 100vw;
     height: 40vh !important;
+    min-height: 300px;
   }
 
   .map-responsive iframe {
@@ -298,6 +328,7 @@ form {
     width: 100%;
     max-width: 100vw;
     height: 40vh !important;
+    min-height: 300px;
   }
 
   .contact-title{

@@ -4,12 +4,31 @@
   margin: 0 auto;
   padding: 0;
   margin-top: 0px;
+  overflow-y: auto;
 }
 
 /* section {
   height: 500px !important;
   overflow: auto;
 } */
+
+.home-btn-apply{
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #8f8d8d;
+    background-color: transparent;
+    color: #545454;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.home-btn-apply:hover {
+    background-color: #fcfcfc;
+    color: #5f8460;
+}
 
 .bt_bb_section {
   margin-top: 40px;
@@ -281,7 +300,8 @@ ul li {
 }
 
 .hero-content button:hover {
-  background-color: #555;
+  color: #5f8460 !important;
+  border-color: #5f8460 !important;
 }
 
 .second-section {
@@ -889,7 +909,7 @@ input[type="file"]::file-selector-button:hover {
   }
 
   .idea-home-section{
-    max-height: 200px !important;
+    max-height: 400px !important;
   }
 
   .positions-grid{
