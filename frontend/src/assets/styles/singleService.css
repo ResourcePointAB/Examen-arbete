@@ -69,11 +69,29 @@
       height: 160px;
       width: 40vw !important;
     }
+
+    .single-img{
+      display: block;
+      width: 70vw !important;
+    }
+
+    .service-single-content{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 200px;
+    }
   }
   
   @media (max-width: 575.99px) {
     .service-single-header{
-      height: 40vh !important;
+      min-height: 350px !important;
+    }
+
+    .single-img{
+      display: block;
+      width: 70vw !important;
     }
 
     .service-single-content{
@@ -83,6 +101,7 @@
       align-items: center;
       margin-left: 10%;
       width: 100%;
+      min-height: 400px;
     }
 
     .single-service h1 {
@@ -101,4 +120,79 @@
       width: 70vw !important;
     }
   }
+  @media (min-width: 1600px) and (max-width: 1800px) {
+    .service-single-header{
+      min-height: 350px !important;
+    }
+  
+    .single-img{
+      display: block;
+      width: 70vw !important;
+      height: 100%;
+      min-height: 300px !important;
+    }
+  }
+
+@media (min-width: 1200px) and (max-width: 1399.99px) {
+  .service-single-header{
+    min-height: 350px !important;
+  }
+
+  .single-img{
+    display: block;
+    width: 70vw !important;
+    height: 100%;
+    min-height: 300px !important;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1600px) {
+  .service-single-header{
+    min-height: 350px !important;
+  }
+
+  .single-img{
+    display: block;
+    width: 70vw !important;
+    height: 100%;
+    min-height: 200px !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.99px) {
+  .service-single-header{
+    min-height: 350px !important;
+  }
+
+  .single-img{
+    display: block;
+    width: 70vw !important;
+    height: 100%;
+    min-height: 300px !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.99px) {
+  .service-single-header{
+    min-height: 350px !important;
+  }
+
+  .single-img{
+    display: block;
+    width: 70vw !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.99px) {
+  .service-single-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 200px;
+  }
+
+  .service-single-header{
+    min-height: 350px !important;
+  }
+}
   

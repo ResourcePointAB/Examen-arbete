@@ -11,7 +11,6 @@ const createPositionsTable = async () => {
         department TEXT,
         location TEXT,
         description TEXT,
-        applicationDeadline DATE,
       )
     `);
 
@@ -25,8 +24,7 @@ const insertPositionData = async () => {
   try {
     const db = await dbPromise;
     
-    await db.run('DELETE FROM positions'); // Clear existing data
-
+    await db.run('DELETE FROM positions'); 
     const stmt = await db.prepare(`
       INSERT INTO positions (title, department, location, description, applicationDeadline)
       VALUES (?, ?, ?, ?, ?)

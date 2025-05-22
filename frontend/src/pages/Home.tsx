@@ -236,7 +236,7 @@ function Home({ onApplyClick }: Props) {
           width: '100%',
           zIndex: 1,
         }}>
-          <path fill="#fff" fill-opacity="1" d="M0,128L48,112C96,96,192,64,288,42.7C384,21,480,11,576,32C672,53,768,107,864,117.3C960,128,1056,96,1152,74.7C1248,53,1344,43,1392,37.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+          <path fill="#fff" fillOpacity="1" d="M0,128L48,112C96,96,192,64,288,42.7C384,21,480,11,576,32C672,53,768,107,864,117.3C960,128,1056,96,1152,74.7C1248,53,1344,43,1392,37.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
         </svg>
         <div className="hero-content idea-content" style={{ position: 'relative', zIndex: 2, width: '80%', maxWidth: '700px', margin: '0px 50px', padding: '20px', textAlign: 'left', marginRight: 'auto', height: '100%', minHeight:'500px', overflowY: 'auto'}}>
           <h2 style={{color:'#fff'}}>{t("home.ideaTitle")}</h2>

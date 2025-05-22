@@ -11,13 +11,30 @@ function highlightMatch(text: string, query: string) {
   );
 }
 
+// Hämtar en del av texten som matchar sökordet
+function getHighlightedExcerpt(text: string, query: string, snippetLength = 300) {
+  const lowerText = text.toLowerCase();
+  const lowerQuery = query.toLowerCase();
+  const matchIndex = lowerText.indexOf(lowerQuery);
+
+  // fallback om inget matchas
+  if (matchIndex === -1) {
+    return text.slice(0, snippetLength); 
+  }
+
+  const start = Math.max(matchIndex - 60, 0);
+  const end = Math.min(start + snippetLength, text.length);
+
+  return text.slice(start, end);
+}
+
 // hämta själva sökordet från URL:en
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
 function SearchPage() {
-  const { i18n } = useTranslation(); // Hämta det valda språket från i18n
+  const { i18n } = useTranslation();
   const { t } = useTranslation()
   const query = useQuery().get("q")?.toLowerCase() || "";
 
@@ -30,7 +47,7 @@ function SearchPage() {
 
   return (
     <div className="container search-container px-5 py-5 flex-fill">
-      <h1>{t("search.title")}</h1>
+      <h1 style={{marginTop:"30px"}}>{t("search.title")}</h1>
       <p>
       {t("search.youSearchedFor")}: <strong>{query}</strong>
       </p>
@@ -40,7 +57,7 @@ function SearchPage() {
           {filteredResults.map((page) => (
             <div key={page.name} className="search-result-item mb-4">
               <h3>{highlightMatch(page.name, query)}</h3>
-              <p>{highlightMatch(page.content[i18n.language as keyof typeof page.content]?.slice(0, 300), query)}...</p>
+              <p>{highlightMatch(getHighlightedExcerpt(page.content[i18n.language as keyof typeof page.content] || "", query), query)}...</p>
               <a href={page.path}>{t("search.readMore")}</a>
             </div>
           ))}

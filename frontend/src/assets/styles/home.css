@@ -214,7 +214,7 @@ ul li {
 } */
 
 .recruitment-process h2 {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
   margin-bottom: 20px;
   margin-left: 15px;
@@ -636,7 +636,7 @@ input[type="file"]::file-selector-button:hover {
 
 }
 
-@media (min-width: 576px) and (max-width: 767.99px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .steps-home{
     display: flex;
     flex-wrap: nowrap !important;
@@ -781,6 +781,25 @@ input[type="file"]::file-selector-button:hover {
 }
 
 @media (max-width: 575.99px) {
+  .steps-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 -5%;
+    width: 100vw !important;
+  }
+
+  .process-icon {
+    width: 100%;
+    max-width: 120px;
+    min-width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+}
+
   .background-section {
     max-height: 450px !important;
   }
@@ -788,6 +807,10 @@ input[type="file"]::file-selector-button:hover {
   .background-section h1 span{
     font-size: 2.5rem;
     margin-left: 0px;
+  }
+
+  .background-section h1 {
+    margin-top: 30% !important;
   }
 
   .third-section {

@@ -118,7 +118,7 @@ function AvailablePositions({ onApplyClick, className = "" }: AvailablePositions
               backgroundColor: '#f9f9f9',
             }}
           >
-            <h3>{t(`positions.${position.titleKey}`)}</h3>
+            <h3 style={{fontSize:"15px"}}>{t(`positions.${position.titleKey}`)}</h3>
             <p><strong>{position.departmentKey}</strong> - Göteborg</p>
             <p>{t(`positions.${position.descKey}`)}</p>
             <button className="apply-btn" onClick={() => onApplyClick(position.titleKey)}>

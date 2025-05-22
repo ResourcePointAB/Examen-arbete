@@ -443,7 +443,10 @@
   }
 
   .img-fluid{
-    width: 50% !important;
+    width: 100% !important;
+    max-width: fit-content;
+    height: auto;
+    min-height: 100px;
     object-fit: cover;
     z-index: 1; 
   }
@@ -600,7 +603,8 @@
   }
 
   .info-section{
-    min-height: 600px;
+    height: 100%;
+    min-height: 500px !important;
   }
 
   .info-boxes{
@@ -624,6 +628,11 @@
   .service-header{
     height: 100%;
     max-height: 30vh;
+  }
+
+  .cta-section{
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cta-text{
@@ -664,7 +673,6 @@
     max-height: 60vh;
     margin: 0px 0px 0px 0px;
   }
-
 }
 
 @media (min-width: 768px) and (max-width: 991.99px) {
@@ -687,7 +695,7 @@
   }
 
   .info-section{
-    height: 80vh;
+    height: 50vh;
   }
 
   .stats-section {
@@ -750,7 +758,8 @@
   }
 
   .info-section{
-    height: 80vh;
+    height: 100%;
+    min-height: 500px !important;
   }
 
   .stats-section {
@@ -797,7 +806,8 @@
   }
 
   .info-section{
-    height: 70vh;
+    height: 100%;
+    min-height: 500px !important;
   }
 
   .stats-section {

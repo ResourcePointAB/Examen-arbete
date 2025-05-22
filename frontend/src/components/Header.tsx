@@ -8,17 +8,14 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 function Header() {
-  const { t, i18n } = useTranslation();
-  // visning av sök-overlay
+  const { t} = useTranslation();
   const [showSearch, setShowSearch] = useState(false);
-  // state för att hantera om navbaren är expanderad eller inte
   const [expanded, setExpanded] = useState(false);
   // referens för navbaren för klick utanför
   const navbarRef = useRef(null);
-  // används för att stänga mobilmenyn när dman navigerar till en ny sida
+  // används för att stänga mobilmenyn när man navigerar till en ny sida
   const location = useLocation(); 
 
-  //Close menu on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -66,11 +63,10 @@ function Header() {
           <Nav.Link as={Link} to="/services" className="text-black">{t('header.services')}</Nav.Link>
           <Nav.Link as={Link} to="/blog" className="text-black">{t('header.blog')}</Nav.Link>
           <Nav.Link as={Link} to="/contact" className="text-black">{t('header.contact')}</Nav.Link>
-            <LanguageSwitcher />
-
-            <div className="d-none d-lg-block ms-3 text-black" onClick={() => setShowSearch(true)} style={{ cursor: 'pointer' }}>
-              <FaSearch size={18} />
-            </div>
+          <LanguageSwitcher />
+          <div className="d-none d-lg-block ms-3 text-black" onClick={() => setShowSearch(true)} style={{ cursor: 'pointer' }}>
+            <FaSearch size={18} />
+          </div>
           </Nav>
         </Navbar.Collapse>
       </Container>

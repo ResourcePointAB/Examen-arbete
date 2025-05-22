@@ -10,27 +10,6 @@ import { useTranslation } from 'react-i18next';
 function SingleService() {
   const { serviceId } = useParams();
   const { t } = useTranslation();
-
-  // const serviceData: Record<string, { title: string; description: string; image: string; }> = {
-  //   individuals: {
-  //     title: "Private Individuals Products & Services",
-  //     description:
-  //       "We offer tailored digital solutions for individuals including financial planning, tech support and personal development tools.",
-  //       image: ServiceImage
-  //   },
-  //   business: {
-  //     title: "Small & Medium Business Clients Acquisition",
-  //     description:
-  //       "We support SMEs with customized software, CRM integration, and strategic consultancy to help scale sustainably.",
-  //       image: TalantImage
-  //   },
-  //   corporate: {
-  //     title: "Corporate Clients & Services",
-  //     description:
-  //       "Enterprise-level support for digital transformation, security, infrastructure optimization and training services.",
-  //       image: WorkImage
-  //   },
-  // };
   const serviceData: Record<string, { title: string; description: string; image: string; }> = {
     individuals: {
       title: "servicesingle.individuals.title",
@@ -75,9 +54,8 @@ function SingleService() {
         <div className="w-50 text-start" style={{ textAlign: 'left' }}>
           <p className="fs-5">{t(content.description)}</p>
         </div>
-        <div className="w-40">
-          <img src={content.image} alt={content.title} className="img-fluid serviceImg" style={{ maxWidth: '100%', height: 'auto',maxHeight:'200px', objectFit: 'cover' }} 
- />
+        <div className="w-40 single-img">
+          <img src={content.image} alt={content.title} className="img-fluid serviceImg" style={{ maxWidth: '100%', height: 'auto',maxHeight:'200px', objectFit: 'cover' }} />
         </div>
       </section>
     </div>

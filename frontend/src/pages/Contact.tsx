@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "../assets/styles/global.css";
 import "../assets/styles/contact.css";
-// import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import contactImage from '../assets/images/contact-hero.jpg';
 import { useTranslation } from 'react-i18next';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,16 +14,18 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-
+  const [successMessage, setSuccessMessage] = useState('');
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  async function handleSubmit (e: React.FormEvent){
     e.preventDefault();
   
     try {
+      // const response = await fetch("https://resourcepoint.se/api/contact", {
+
       const response = await fetch("http://localhost:5000/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -32,7 +34,8 @@ const Contact = () => {
   
       const result = await response.json();
       if (result.success) {
-        alert("Formuläret har skickats!");
+        setSuccessMessage("Tack för ditt meddelande! Vi kommer att kontakta dig så fort som möjligt.");
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       } else {
         alert("Det uppstod ett problem när du skickade formuläret.");
       }
@@ -67,7 +70,7 @@ const Contact = () => {
             <h2 className="contact-title pt-5 text-white">{t("contact.title")}</h2>
             <p className="contact-page fs-6 text-white">{t("contact.description")}</p>
             <div className="stats-svg-bottom">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f7f4f0" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,197.3C384,213,480,267,576,282.7C672,299,768,277,864,245.3C960,213,1056,171,1152,138.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>            
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f7f4f0" fillOpacity="1" d="M0,224L48,213.3C96,203,192,181,288,197.3C384,213,480,267,576,282.7C672,299,768,277,864,245.3C960,213,1056,171,1152,138.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>            
             </div>
           </Col>
         </Row>
@@ -93,13 +96,13 @@ const Contact = () => {
 
           <Col md={5} className="contact-info-left mb-2 text-start">
             <p>
-              <i style={{ color: "#fc5633" }} className="fas fa-phone-alt me-2" /> +46 70 440 31 70
+              <i style={{ color: "#fc5633" }} className="fas fa-phone-alt me-2" /><FaPhoneAlt size={13} style={{ marginRight: "8px" }} /> +46 70 440 31 70
             </p>
             <p>
-              <i style={{ color: "#fc5633" }} className="fas fa-envelope me-2" /> info@resourcepoint.se
+              <i style={{ color: "#fc5633" }} className="fas fa-envelope me-2" /><FaEnvelope size={13} style={{ marginRight: "8px" }} /> info@resourcepoint.se
             </p>
             <p>
-              <i style={{ color: "#fc5633" }} className="fas fa-map-marker-alt me-2" />Stora Badhusgatan 18, 411 21, Göteborg
+              <i style={{ color: "#fc5633" }} className="fas fa-map-marker-alt me-2" /><FaMapMarkerAlt size={13} style={{ marginRight: "8px" }} /> Stora Badhusgatan 18, 411 21, Göteborg
             </p>
           </Col>
         </Row>
@@ -199,6 +202,19 @@ const Contact = () => {
                 </Col>
               </Row>
             </Form>
+            {successMessage && (
+              <div style={{
+                backgroundColor: "#d4edda",
+                color: "#155724",
+                border: "1px solid #c3e6cb",
+                padding: "15px",
+                borderRadius: "5px",
+                marginTop: "20px",
+                textAlign: "center"
+              }}>
+                {successMessage}
+              </div>
+            )}
           </Col>
         </Row>
       </section>
@@ -221,25 +237,6 @@ const Contact = () => {
           </Col>
         </Row>
       </section>
-
-      {/* <section>
-        <Row>
-          <Col className="text-center mt-4">
-            <p className="social">Social Media</p>
-            <div className="social-icons d-flex justify-content-center gap-3">
-              <a href="https://resourcepoint.se" target="_blank" rel="noopener noreferrer" className="icon facebook">
-                <FaFacebookF />
-              </a>
-              <a href="https://resourcepoint.se" target="_blank" rel="noopener noreferrer" className="icon twitter">
-                <FaTwitter />
-              </a>
-              <a href="https://www.linkedin.com/company/resourcepoint" target="_blank" rel="noopener noreferrer" className="icon linkedin">
-                <FaLinkedinIn />
-              </a>
-            </div>
-          </Col>
-        </Row>
-      </section> */}
 
     </Container>
   );

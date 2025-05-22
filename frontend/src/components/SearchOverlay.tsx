@@ -30,13 +30,6 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
           onChange={(e) => setQuery(e.target.value)}
           className="search-input"
         />
-        {/* <button
-          type="submit"
-          className="btn btn-outline-primary d-sm-none"
-          style={{ backgroundColor: "transparent", border: "none", color: "white" }}
-        >
-          <i className="bi bi-arrow-right"></i>
-        </button> */}
         <button type="button" className="close-btn" onClick={onClose}>
           ×
         </button>
