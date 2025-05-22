@@ -10,7 +10,7 @@ const createPositionsTable = async () => {
         title TEXT NOT NULL,
         department TEXT,
         location TEXT,
-        description TEXT,
+        description TEXT
       )
     `);
 

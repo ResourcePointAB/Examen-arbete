@@ -129,6 +129,27 @@ app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response):
       console.error('Error while reading/writing the file:', err);
     }
 
+    // --------4- Spara ansökan i databasen --------
+    const db = await dbPromise;
+
+    await db.run(`
+      INSERT INTO applications 
+      (firstName, lastName, email, city, phone, experiences, education, message, portfolio, cvPath, positionTitle)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `, [
+      application.firstName,
+      application.lastName,
+      application.email,
+      application.city,
+      application.phone,
+      application.experiences || null,
+      application.education || null,
+      application.message || null,
+      application.portfolio || null,
+      application.cvPath,
+      req.body.positionTitle || null
+    ]);
+
     // --------5- Skicka e-post till företaget --------
     const positionTitle = req.body.positionTitle;
     const mailOptions = {

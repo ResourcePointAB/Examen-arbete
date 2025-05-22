@@ -9,24 +9,22 @@ async function initializeDB(): Promise<Database> {
   });
 
   await db.exec(`
-    CREATE TABLE IF NOT EXISTS applicants (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      firstName TEXT,
-      lastName TEXT,
-      email TEXT,
-      phone TEXT,
-      cvPath TEXT
-    );
-  `);
+    CREATE TABLE IF NOT EXISTS applications (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    firstName TEXT,
+    lastName TEXT,
+    email TEXT,
+    phone TEXT,
+    city TEXT,
+    experience TEXT,
+    education TEXT,
+    message TEXT,
+    portfolio TEXT,
+    cvPath TEXT,
+    positionTitle TEXT,
+    appliedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
-  await db.exec(`
-    CREATE TABLE IF NOT EXISTS positions (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      title TEXT NOT NULL,
-      department TEXT,
-      location TEXT,
-      description TEXT
-    );
   `);
 
   return db;
