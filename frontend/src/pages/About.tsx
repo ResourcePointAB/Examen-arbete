@@ -50,8 +50,8 @@ function About({ onApplyClick }: Props) {
                   {t("about.internshipDescription")}
                 </p>
                 <Button variant="primary" size="lg" className="text-dark apply-btn" onClick={() => onApplyClick("General Position")}>
-              {t("about.sendCv")}
-              </Button>
+                {t("about.sendCv")}
+                </Button>
               </div>
             </Col>
 

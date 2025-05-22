@@ -5,7 +5,6 @@ import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 
-
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -24,18 +23,20 @@ import WorkImage from '../assets/images/work.jpg';
 import AvailablePositions from '../components/AvailablePositions'; 
 import { useTranslation } from 'react-i18next';
 
+type Props = {
+  onApplyClick: (positionTitle?: string) => void;
+};
 
-
-function Services() {
+function Services({ onApplyClick }: Props) {
   const [showPositions, setShowPositions] = useState(false);
 
   const handleShowPositions = () => {
     setShowPositions(!showPositions); 
   };
 
-  const handleApplyClick = (title: string) => {
-    console.log(`Ansökan för position: ${title}`);
-  };
+  // const handleApplyClick = (title: string) => {
+  //   console.log(`Ansökan för position: ${title}`);
+  // };
 
   const { t } = useTranslation();
 
@@ -69,36 +70,6 @@ function Services() {
             </div>
           </Col>
         </Row>
-
-        {/* <Row className="carousel-container">
-          <Col>
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={30}
-              slidesPerGroup={1}
-              navigation={true}
-              loop={false}
-              modules={[Navigation]}
-              breakpoints={{
-                0: { slidesPerView: 1 },
-                576: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                992: { slidesPerView: 3 },
-              }}
-              className="mySwiper"
-            >
-              {serviceBoxes.map(service => (
-                <SwiperSlide key={service.id}>
-                  <div className="service-box">
-                    <img src={service.image} alt={service.title} className="img-fluid" />
-                    <p>{service.description}</p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <div className="swiper-nav-buttons text-center mt-3"></div>
-          </Col>
-        </Row> */}
       </section>
 
       {/* services*/}
@@ -130,32 +101,6 @@ function Services() {
           </Col>
         </Row>
       </section>
-
-      {/* 4 sektionen*/}
-      {/* <section>
-        <Row className="stats-section d-flex align-items-center justify-content-center">
-          <Col md={5} className="stats-text">
-            <div className="stats-svg">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="#f7f4f0" fillOpacity="1" d="M0,128L48,112C96,96,192,64,288,42.7C384,21,480,11,576,32C672,53,768,107,864,117.3C960,128,1056,96,1152,74.7C1248,53,1344,43,1392,37.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-              </svg>
-            </div>
-            <h2>The operational processes of a business area. What drives the business itself.</h2>
-            <div className="stat-bar-wrapper">
-              <div className="stat-bar-fill" style={{ width: "90%" }}>Strategy Consulting 90%</div>
-            </div>
-            <div className="stat-bar-wrapper">
-              <div className="stat-bar-fill" style={{ width: "50%" }}>Operations Carries 50%</div>
-            </div>
-            <div className="stat-bar-wrapper">
-              <div className="stat-bar-fill" style={{ width: "80%" }}>Management Consulting 80%</div>
-            </div>
-            <div className="stats-svg-bottom">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="white" fillOpacity="1" d="M0,224L48,213.3C96,203,192,181,288,197.3C384,213,480,267,576,282.7C672,299,768,277,864,245.3C960,213,1056,171,1152,138.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>            
-            </div>
-          </Col>
-        </Row>
-      </section> */}
 
       {/* swiper section */}
       <section>
@@ -209,7 +154,7 @@ function Services() {
           <Col md={5} className="cta-text">
             <h2>{t("services.idea")}</h2>
             <Button className="cta-btn-service" variant="secondary" onClick={handleShowPositions}>{t("services.button")}</Button>
-            {showPositions && <AvailablePositions onApplyClick={handleApplyClick} className="service-page-positions"/>}
+            {showPositions && <AvailablePositions onApplyClick={onApplyClick} className="service-page-positions"/>}
           </Col>
         </Row>
       </section>

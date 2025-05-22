@@ -34,12 +34,12 @@ function Blog() {
 
   const { t } = useTranslation()
   const embeddedPosts: string[] = [
-    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7320104458787430401?collapsed=1" height="720" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
-    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7251506607916806144?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
-    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7320104458787430401" height="1623" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
-    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7251506607916806144?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
-    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7251506607916806144?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
-    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7251506607916806144?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7330593251311161346?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7329067576469143553?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7328319902690242560?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7326676586039001088?collapsed=1" height="265" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7325483295058628610?collapsed=1" height="671" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
+    `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7247598850461290498?collapsed=1" height="594" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`,
   ];
 
   return (
@@ -74,7 +74,7 @@ function Blog() {
               <div
                 className="linkedin-post-embed"
                 dangerouslySetInnerHTML={{ __html: iframeCode }}
-              />
+              ></div>
             </Col>
           ))}
         </Row>

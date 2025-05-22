@@ -46,6 +46,7 @@ function App() {
       const API_URL = typeof process !== 'undefined' && process.env.REACT_APP_API_URL
       ? process.env.REACT_APP_API_URL
       : "http://localhost:5000/api/apply";
+      // :"https://resourcepoint.se/api/apply";
     
       try {
         const response = await fetch(API_URL, {
@@ -76,7 +77,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home onApplyClick={handleShow} />} />
         <Route path="/about" element={<About onApplyClick={handleShow} />}  />
-        <Route path="/services" element={<Services />} />
+        <Route path="/services" element={<Services onApplyClick={handleShow} />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/singleService/:serviceId" element={<SingleService />} />

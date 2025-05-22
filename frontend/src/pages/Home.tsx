@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
 import AvailablePositions from '../components/AvailablePositions';
 import "../assets/styles/global.css";
 import "../assets/styles/responsive.css";
@@ -23,59 +21,7 @@ type Props = {
 };
 
 function Home({ onApplyClick }: Props) {
-  const [show, setShow] = useState(false);
-  const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
-
-  const handleClose = () => setShow(false);
-  const handleShow = (positionTitle?: string) => {
-    if (positionTitle) {
-      setSelectedPosition(positionTitle);
-    } else {
-      setSelectedPosition(null); 
-    }
-    setShow(true);
-  };
-
   const { t } = useTranslation()
-
-  // Function to handle CV submit in the modal 
-  async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    const formData = new FormData(e.target as HTMLFormElement);
-    const formEntries = [...formData.entries()];
-    console.log(formEntries);
-
-    if (selectedPosition) {
-      formData.append('positionTitle', selectedPosition);
-    }
-    console.log("Selected Position:", selectedPosition);
-
-    const API_URL = typeof process !== 'undefined' && process.env.REACT_APP_API_URL
-    ? process.env.REACT_APP_API_URL
-    : "http://localhost:5000/api/apply";
-  
-    try {
-      const response = await fetch(API_URL, {
-        method: "POST",
-        body: formData,
-      });
-
-      const result = await response.json();
-      if (response.ok) {
-        alert("Application submitted successfully!");
-      } else {
-        alert("Something went wrong: " + result.message);
-      }
-    } catch (err) {
-      console.error(err);
-      if (err instanceof Error) {
-        alert("Failed to submit application: " + err.message);
-      } else {
-        alert("An unknown error occurred.");
-      }
-    }
-  }
 
   return (
     <div className="container">
@@ -279,7 +225,7 @@ function Home({ onApplyClick }: Props) {
         <div className="hero-content positions-div" style={{ textAlign: 'center', zIndex: 2, height: '100%', overflow: 'hidden'}}>
           <h1 style={{ fontSize: '23px'}}>{t("home.positionsTitle")}</h1>
           <p className="POSITION-HERO">{t("home.positionsText")}</p>
-          <AvailablePositions onApplyClick={handleShow} />
+          <AvailablePositions onApplyClick={onApplyClick} />
 
         </div>
         <div className="overlay"  style={{
@@ -292,65 +238,6 @@ function Home({ onApplyClick }: Props) {
         }}></div>
       </section>
 
-      {/* Modal för ansökan */}
-      <Modal show={show} onHide={handleClose} size="lg">
-        <Modal.Header closeButton>
-          <Modal.Title>Online Application</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={handleSubmit} encType="multipart/form-data">
-            <Form.Group className="mb-3">
-              <Form.Label>Upload CV *</Form.Label>
-              <Form.Control type="file" name="cv" required />
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>firstName *</Form.Label>
-              <Form.Control type="text" name="firstName" required />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>LastName *</Form.Label>
-              <Form.Control type="text" name="lastName" required />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>E-post *</Form.Label>
-              <Form.Control type="email" name="email" required />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>City *</Form.Label>
-              <Form.Control type="text" name="city" required />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Phone *</Form.Label>
-              <Form.Control type="text" name="phone" required />
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Experiences</Form.Label>
-              <Form.Control as="textarea" name="experience" rows={3} />
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Education</Form.Label>
-              <Form.Control as="textarea"name="education"  rows={3} />
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>LinkedIn / GitHub / Portfolio</Form.Label>
-              <Form.Control type="text" name="portfolio"/>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Message</Form.Label>
-              <Form.Control as="textarea" name="message" rows={4} />
-            </Form.Group>
-
-            <Button variant="primary" type="submit">
-              Send Application
-            </Button>
-          </Form>
-        </Modal.Body>
-      </Modal>
     </div>
   );
 }
