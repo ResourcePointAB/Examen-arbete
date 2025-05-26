@@ -39,6 +39,7 @@ const Contact = () => {
         alert("Det uppstod ett problem när du skickade formuläret.");
       }
     } catch (error) {
+      console.log("Fel vid inskick:", error);
       alert("Ett fel inträffade vid inskick.");
     }
   };
