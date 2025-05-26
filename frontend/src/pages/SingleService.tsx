@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../assets/styles/singleService.css";
 
@@ -10,6 +11,11 @@ import { useTranslation } from 'react-i18next';
 function SingleService() {
   const { serviceId } = useParams();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const serviceData: Record<string, { title: string; description: string; image: string; }> = {
     individuals: {
       title: "servicesingle.individuals.title",
@@ -41,7 +47,7 @@ function SingleService() {
           backgroundSize: "cover",
           position: "relative",
           height: "60vh",
-          backgroundPosition: "center 33%",
+          backgroundPosition: "center 28%",
           backgroundRepeat: "no-repeat",
           overflow: "hidden",
           }}>

@@ -58,7 +58,7 @@ function Services({ onApplyClick }: Props) {
           position: "relative",
           height: "60vh",
           minHeight: "400px",
-          backgroundPosition: "center 33%",
+          backgroundPosition: "center 28%",
           backgroundRepeat: "no-repeat",
           overflow: "hidden",
           }}>

@@ -168,10 +168,10 @@ export const pageContents :Page[]= [
       path: '/singleService/business',
       content: {
         en: `
-          Small & Medium Bussiness client aquisition. We support SMEs with customized software, CRM integration, and strategic consultancy to help scale sustainably.
+          Small & Medium Bussiness client aquisition. We support SMEs with customized software and strategic consultancy to help scale sustainably.
         `,
         sv: `
-          Små och medelstora företagskunder. Vi stödjer små och medelstora företag med skräddarsydd mjukvara, CRM-integration och strategisk konsultation för att hjälpa dem att växa hållbart.
+          Små och medelstora företagskunder. Vi stödjer små och medelstora företag med skräddarsydd mjukvara och strategisk konsultation för att hjälpa dem att växa hållbart.
         `
       }
   },

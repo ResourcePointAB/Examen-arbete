@@ -230,8 +230,10 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  background-color: #333;
-  color: #fff !important;
+  /* background-color: #333;
+  color: #fff !important; */
+  color: #040404 !important;
+  background-color: transparent !important;
   border: none;
   width: 20px !important;
   height: 20px !important;
@@ -241,7 +243,8 @@
 }
 
 .swiper-button-next:after, .swiper-button-prev:after {
-  font-size: 1.3rem !important;
+  font-size: 25px !important;
+  font-weight: bold;
 }
 
 .swiper-button-prev:hover,

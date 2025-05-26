@@ -120,7 +120,7 @@ function Home({ onApplyClick }: Props) {
 
             {/* step1 */}
             <div className="col-md-2 col-sm-5 col-5">
-              <div className="process-step step-1" style={{ marginTop: "-20px" }}>
+              <div className="process-step step-1" style={{ marginTop: "-10px" }}>
                 <div className="process-icon">
                   <img src={img1} alt="Identify Job Opening" className="icon-img" />
                 </div>
@@ -150,7 +150,7 @@ function Home({ onApplyClick }: Props) {
 
             {/* step4 */}
             <div className="col-md-2 col-sm-5 col-5">
-              <div className="process-step step-4" style={{ marginTop: "-20px" }}>
+              <div className="process-step step-4" style={{ marginTop: "-10px" }}>
                 <div className="process-icon">
                   <img src={img4} alt="Onboard and Start" className="icon-img" />
                 </div>
