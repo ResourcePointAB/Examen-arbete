@@ -7,38 +7,47 @@ import path from 'path';
 import dbPromise from './db.config'; 
 import dotenv from 'dotenv';
 import contactRoute from './contactRoute';
-import authRoutes from './auth';
-import linkedinRouter from './linkedinPosts';
+// import authRoutes from './auth';
+// import linkedinRouter from './linkedinPosts';
 
 dotenv.config(); 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigins = [
-  'https://www.resourcepoint.se'];
+const allowedOrigins = ['https://www.resourcepoint.se', 'http://localhost:3000','http://localhost:5173',];
 
-app.use(cors({
-  origin: function(origin, callback){
-    if(!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) === -1){
-      const msg = 'CORS-policy: Denna origin är inte tillåten.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  }
-}));
+// app.use(cors({
+//   origin: function (origin: string | undefined, callback: Function) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true,
+// }));
 
-// app.use(cors());
+// app.use(cors({
+//   origin: ['http://localhost:5173', 'http://localhost:3000', 'https://www.resourcepoint.se'],
+//   credentials: true
+// }));
+app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api', linkedinRouter);
+// app.use('/api', linkedinRouter);
 app.use('/api/contact', contactRoute);
-app.use('/api', authRoutes);
+// app.use('/api', authRoutes);
 
 app.get('/', (req, res) => {
   res.send('Välkommen till servern!');
+});
+
+app.post('/api/contact', (req, res) => {
+  console.log('Meddelande mottaget:', req.body);
+  res.status(200).send('Meddelande mottaget!');
 });
 
 // -------- 1.1 Multer: Spara CV i uploads mappen i backend--------
