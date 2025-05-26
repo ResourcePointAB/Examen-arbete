@@ -9,7 +9,7 @@ async function initializeDB(): Promise<Database> {
   });
 
   await db.exec(`
-    CREATE TABLE IF NOT EXISTS applications (
+    CREATE TABLE IF NOT EXISTS applicants (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     firstName TEXT,
     lastName TEXT,

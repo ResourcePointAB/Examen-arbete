@@ -63,7 +63,7 @@ interface ApplicationData {
   email: string;
   city: string;
   phone: string;
-  experiences?: string;
+  experience?: string;
   education?: string;
   message?: string;
   portfolio?: string;
@@ -71,13 +71,25 @@ interface ApplicationData {
 }
 
 // --------2. Nodemailer-konfiguration --------
+
+// const transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: process.env.REACT_APP_EMAIL_USER,
+//     pass: process.env.REACT_APP_EMAIL_PASS,
+//   },
+// });
+
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'send.one.com',        
+  port: 587,                    
+  secure: false,            
   auth: {
-    user: process.env.REACT_APP_EMAIL_USER,
-    pass: process.env.REACT_APP_EMAIL_PASS,
-  },
+    user: process.env.EMAIL_USER, 
+    pass: process.env.EMAIL_PASS 
+  }
 });
+
 
 // --------3. POST-endpoint för ansökningar --------
 app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response): Promise<void> => {
@@ -98,7 +110,7 @@ app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response):
       email,
       city,
       phone,
-      experiences: experience,
+      experience: experience,
       education,
       message,
       portfolio,
@@ -130,31 +142,31 @@ app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response):
     }
 
     // --------4- Spara ansökan i databasen --------
-    const db = await dbPromise;
+    // const db = await dbPromise;
 
-    await db.run(`
-      INSERT INTO applications 
-      (firstName, lastName, email, city, phone, experiences, education, message, portfolio, cvPath, positionTitle)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `, [
-      application.firstName,
-      application.lastName,
-      application.email,
-      application.city,
-      application.phone,
-      application.experiences || null,
-      application.education || null,
-      application.message || null,
-      application.portfolio || null,
-      application.cvPath,
-      req.body.positionTitle || null
-    ]);
+    // await db.run(`
+    //   INSERT INTO applicants 
+    //   (firstName, lastName, email, city, phone, experience, education, message, portfolio, cvPath, positionTitle)
+    //   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    // `, [
+    //   application.firstName,
+    //   application.lastName,
+    //   application.email,
+    //   application.city,
+    //   application.phone,
+    //   application.experience || null,
+    //   application.education || null,
+    //   application.message || null,
+    //   application.portfolio || null,
+    //   application.cvPath,
+    //   req.body.positionTitle || null
+    // ]);
 
     // --------5- Skicka e-post till företaget --------
     const positionTitle = req.body.positionTitle;
     const mailOptions = {
-      from: `"Jobbansökan" <${process.env.REACT_APP_EMAIL_USER}>`,
-      to: process.env.REACT_APP_EMAIL_RECEIVER, 
+      from: `"Jobbansökan" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_RECEIVER, 
       subject: `Ny ansökan från ${firstName} ${lastName}`,
       html: `
         <h3>Ny ansökan mottagen</h3>
@@ -208,12 +220,12 @@ app.get('/api/positions', async (req: Request, res: Response): Promise<void> => 
 // -------- POST-endpoint för att lägga till en ny jobbposition --------
 app.post('/api/add-position', async (req: Request, res: Response) => {
   try {
-    const { title, department, location, description, applicationDeadline, salary } = req.body;
+    const { title, department, location, description} = req.body;
     const db = await dbPromise;
     await db.run(`
-      INSERT INTO positions (title, department, location, description, applicationDeadline, salary)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `, [title, department, location, description, applicationDeadline, salary]);
+      INSERT INTO positions (title, department, location, description)
+      VALUES (?, ?, ?, ?)
+    `, [title, department, location, description]);
     
     res.status(201).json({ message: 'Position added successfully!' });
   } catch (error) {

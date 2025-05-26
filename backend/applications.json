@@ -1,26 +1,3 @@
 [
-  {
-    "firstName": "Ania",
-    "lastName": "Einbeigi",
-    "email": "aigi@gmail.com",
-    "city": "Göteborg",
-    "phone": "0317750942",
-    "experiences": "",
-    "education": "",
-    "message": "",
-    "portfolio": "",
-    "cvPath": "C:\\Users\\Min Dator\\Desktop\\examen arbete\\backend\\uploads\\1747905816463-Lia 2.pdf"
-  },
-  {
-    "firstName": "Ania",
-    "lastName": "Einbeigi",
-    "email": "anahita.einbeigi@gmail.com",
-    "city": "Göteborg",
-    "phone": "0760524646",
-    "experiences": "",
-    "education": "",
-    "message": "",
-    "portfolio": "",
-    "cvPath": "C:\\Users\\Min Dator\\Desktop\\examen arbete\\backend\\uploads\\1747921981745-CV Anahita- SV -Resourcepoint.pdf"
-  }
+  
 ]
