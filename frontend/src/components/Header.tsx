@@ -40,7 +40,7 @@ function Header() {
     <Navbar ref={navbarRef} expand="lg"  fixed="top" style={{ backgroundColor: '#f7f4f0' }}
     variant="dark" className="shadow-sm py-2" expanded={expanded}>
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img
             src={LogoImage}
             alt="ResourcePoint Logo"

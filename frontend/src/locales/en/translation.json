@@ -42,7 +42,7 @@
     },
     "about": {
         "title": "ABOUT",
-        "description": "Headquartered in Göteborg, the western gateway to Sweden, Resource Point AB is a 20+ year old firm, providing software solutions, services and resources to firms in Scandinavia.",
+        "description": "Headquartered in Göteborg, the western gateway to Sweden, Resource Point AB is a 25+ year old firm, providing software solutions, services and resources to firms in Scandinavia.",
         "sectionTwoTitle": "Resource Point AB",
         "sectionTwoDescription": "Resource Point is a distinguished consulting company with its roots firmly planted in the vibrant city of Gothenburg, Sweden. Established in 1997, Resource Point has been a trusted partner for organizations seeking innovative solutions and expert guidance in a rapidly evolving business landscape. With over two decades of experience, the company has built a reputation for excellence in providing strategic insights, tailored recommendations, and practical implementation support across various industries.",
         "sectionTwoDescription2":"Resource Point AB is your trusted consulting partner, dedicated to helping you unlock your full potential and achieve sustainable growth. With a wealth of experience and a team of experts in various domains, we specialize in providing tailored solutions and strategic guidance to organizations across industries.",
@@ -50,9 +50,9 @@
         "internshipDescription": "We have a running collaboration with IT-Högskolan i Väst, where we take in a group of students and give them real assignments to build IT applications for their internship. That gives them real experience from worklife and we support them with expertise from our senior consultants at the same time as we are getting to know them personally. We also help them with what it takes to get assignments as consultants or their first job, when they graduate.",
         "timeline": {
             "title": "Expertise:",
-            "event": "Our team of experienced consultants brings a wealth of knowledge and expertise to every project, ensuring successful outcomes.",
-            "title1": "Client-centric Approach:",
-            "event1": "We prioritize your unique needs and business objectives, tailoring solutions that fit your organization perfectly.",
+            "event": "The company was founded under the name IT-System Väst AB (ITSV).",
+            "title1": "Strategic Collaboration:",
+            "event1": "ITSV merged with Ra Intervention AB and changed its name to Resource Point AB.",
             "title2": "Innovation:",
             "event2": "We stay at the forefront of technology trends to provide you with cutting-edge solutions that give you a competitive advantage.",
             "title3": "Reliability",
@@ -125,8 +125,8 @@
     },
     "servicesingle": {
         "individuals": {
-        "title": "Private Individuals Products & Services",
-        "description": "We offer tailored digital solutions for individuals including financial planning, tech support and personal development tools."
+        "title": "Products & Services for companies",
+        "description": "We offer tailored digital solutions for companies, including financial planning, tech support and personal development tools."
         },
         "business": {
         "title": "Small & Medium Business Clients Acquisition",

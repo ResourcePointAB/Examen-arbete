@@ -42,7 +42,7 @@
     },
     "about": {
         "title": "OM Oss",
-        "description": "Med huvudkontor i Göteborg, Västsveriges port, är Resource Point AB ett företag med över 20 års erfarenhet som levererar mjukvarulösningar, tjänster och resurser till företag i Skandinavien.",
+        "description": "Med huvudkontor i Göteborg, Västsveriges port, är Resource Point AB ett företag med över 25 års erfarenhet som levererar mjukvarulösningar, tjänster och resurser till företag i Skandinavien.",
         "sectionTwoTitle": "Resource Point AB",
         "sectionTwoDescription": "Resource Point är ett framstående konsultföretag med sina rötter djupt förankrade i den livliga staden Göteborg, Sverige. Grundat 1997 har Resource Point varit en pålitlig partner för organisationer som söker innovativa lösningar och expertvägledning i en snabbt förändrad affärsmiljö. Med över två decennier av erfarenhet har företaget byggt upp ett rykte för excellens inom att tillhandahålla strategiska insikter, skräddarsydda rekommendationer och praktiskt implementeringsstöd inom olika branscher.",
         "sectionTwoDescription2":"Resource Point AB är din pålitliga konsultpartner, dedikerad till att hjälpa dig låsa upp din fulla potential och uppnå hållbar tillväxt. Med en rik erfarenhet och ett team av experter inom olika områden specialiserar vi oss på att tillhandahålla skräddarsydda lösningar och strategisk vägledning till organisationer inom olika branscher.",
@@ -50,9 +50,9 @@
         "internshipDescription": "Vi har ett pågående samarbete med IT-Högskolan i Väst, där vi tar in en grupp studenter och ger dem verkliga uppdrag för att bygga IT-applikationer under sin praktik. Det ger dem verklig erfarenhet från arbetslivet och vi stödjer dem med expertis från våra seniora konsulter samtidigt som vi lär känna dem personligen. Vi hjälper dem också med vad som krävs för att få uppdrag som konsulter eller deras första jobb när de examineras.",
         "timeline": { 
                 "title": "Expertis:",
-                "event": "Vårt team av erfarna konsulter har en stor kunskap och expertis inom varje projekt, vilket säkerställer framgångsrika resultat.",
-                "title1": "Kundcentrerad strategi:",
-                "event1": "Vi prioriterar dina unika behov och affärsmål, och skräddarsyr lösningar som passar din organisation perfekt.",
+                "event": "Bolaget bildades under namnet IT-System Väst AB (ITSV)",
+                "title1": "Strategisk Samverkan:",
+                "event1": " ITSV gick ihop med Ra Intervention AB och bytte namn till Resource Point AB.",
                 "title2": "Innovation:",
                 "event2": "Vi strävar efter att ligga i framkant av teknologiska framsteg och implementera innovativa lösningar som driver din verksamhet framåt.",
                 "title3": "Kvalitet och pålitlighet:",
@@ -68,7 +68,7 @@
         "experience": "Dra nytta av verklig erfarenhet",
         "Strategic": "Vi utforskar de senaste trenderna och strategierna.",
         "itConsulting": {
-            "title": "Produkter och tjänster för privatpersoner",
+            "title": "Produkter och tjänster för Företagskunder",
             "description": "Utnyttja agila ramverk för att ge en robust översikt av övergripande indikatorer offline."
         },
         "business": {
@@ -126,8 +126,8 @@
     },
     "servicesingle": {
         "individuals": {
-        "title": "Privata individers produkter och tjänster",
-        "description": "Vi erbjuder skräddarsydda digitala lösningar för individer, inklusive ekonomisk planering, teknisk support och personlig utveckling."
+        "title": "Produkter och tjänster för Företagskunder",
+        "description": "Vi erbjuder skräddarsydda digitala lösningar för företag, inklusive ekonomisk planering, teknisk support och personlig utveckling."
         },
         "business": {
         "title": "Små och medelstora företag",

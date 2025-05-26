@@ -65,7 +65,7 @@ function About({ onApplyClick }: Props) {
                   </div>
                 </li>
                 <li>
-                  <span className="year">2000</span>
+                  <span className="year">2007</span>
                   <div className="timeline-content">
                     <h3>{t("about.timeline.title1")} </h3>
                     <p>{t("about.timeline.event1")} </p>

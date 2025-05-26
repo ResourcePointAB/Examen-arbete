@@ -1,3 +1,26 @@
 [
-  
+  {
+    "firstName": "Ania",
+    "lastName": "Einbeigi",
+    "email": "anahita.einbeigi@gmail.com",
+    "city": "Göteborg",
+    "phone": "0317750942",
+    "experiences": "",
+    "education": "",
+    "message": "TEST",
+    "portfolio": "",
+    "cvPath": "C:\\Users\\Min Dator\\Desktop\\examen arbete\\backend\\uploads\\1748257475757-CV Anahita- EN - resourcepoin.pdf"
+  },
+  {
+    "firstName": "Ania",
+    "lastName": "Einbeigi",
+    "email": "anahita.einbeigi@gmail.com",
+    "city": "Göteborg",
+    "phone": "0317750942",
+    "experiences": "Resourcepoint",
+    "education": "Frontend",
+    "message": "TEST",
+    "portfolio": "likedin/anahita.einbeigi",
+    "cvPath": "C:\\Users\\Min Dator\\Desktop\\examen arbete\\backend\\uploads\\1748257534573-CV Anahita- EN - resourcepoin.pdf"
+  }
 ]
