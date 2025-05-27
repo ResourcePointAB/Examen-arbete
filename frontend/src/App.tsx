@@ -18,6 +18,7 @@ import { useState } from "react";
 function App() {
   const [show, setShow] = useState(false);
   const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
+  const [statusMessage, setStatusMessage] = useState<null | { success: boolean; text: string }>(null);
 
   const handleShow = (positionTitle?: string) => {
     if (positionTitle) {
@@ -30,9 +31,9 @@ function App() {
 
   const handleClose = () => setShow(false);
 
-    // Function to handle CV submit in the modal 
-    async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
-      e.preventDefault();
+  // Function to handle CV submit in the modal 
+  async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
   
       const formData = new FormData(e.target as HTMLFormElement);
       const formEntries = [...formData.entries()];
@@ -56,9 +57,11 @@ function App() {
   
         const result = await response.json();
         if (response.ok) {
-          alert("Application submitted successfully!");
+          // alert("Application submitted successfully!");
+           setStatusMessage({ success: true, text: "✅ Ansökan skickades!" });
         } else {
-          alert("Something went wrong: " + result.message);
+          // alert("Something went wrong: " + result.message);
+          setStatusMessage({ success: false, text: `❌ Fel: ${result.message}` });
         }
       } catch (err) {
         console.error(err);
@@ -142,6 +145,22 @@ function App() {
               Send Application
             </Button>
           </Form>
+
+           {/* Feedback Message */}
+          {statusMessage && (
+            <div
+              style={{
+                marginTop: "1rem",
+                padding: "1rem",
+                borderRadius: "5px",
+                color: statusMessage.success ? "green" : "red",
+                backgroundColor: statusMessage.success ? "#e0ffe0" : "#ffe0e0",
+              }}
+            >
+              {statusMessage.text}
+            </div>
+          )}
+          
         </Modal.Body>
       </Modal>
     </Router> 
