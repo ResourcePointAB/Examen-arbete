@@ -47,7 +47,7 @@ function App() {
       const API_URL = typeof process !== 'undefined' && process.env.REACT_APP_API_URL
       ? process.env.REACT_APP_API_URL
       // : "http://localhost:5000/api/apply";
-      :"https://resourcepoint.se/beta/api/apply";
+      :"https://resourcepoint.se/api/apply";
     
       try {
         const response = await fetch(API_URL, {
