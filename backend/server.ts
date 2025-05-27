@@ -45,23 +45,23 @@ app.post('/api/contact', (req, res) => {
 // -------- 1.1 Multer: Spara CV i uploads mappen i backend--------
 const uploadDir = path.join(__dirname, 'uploads');
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir);
-    }
-    cb(null, uploadDir);
-  },
-  filename: (req, file, cb) => {
-    const timestamp = Date.now();
-    const uniqueFileName = `${timestamp}-${file.originalname}`;
-    cb(null, uniqueFileName);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     if (!fs.existsSync(uploadDir)) {
+//       fs.mkdirSync(uploadDir);
+//     }
+//     cb(null, uploadDir);
+//   },
+//   filename: (req, file, cb) => {
+//     const timestamp = Date.now();
+//     const uniqueFileName = `${timestamp}-${file.originalname}`;
+//     cb(null, uniqueFileName);
+//   },
+// });
 
 // -------- 1.2 Skydda servern från för stora filer och tillåt rätt filtyp --------
 const upload = multer({
-  storage, 
+  storage: multer.memoryStorage(), 
   limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     const allowedMimeTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
@@ -108,6 +108,8 @@ const transporter = nodemailer.createTransport({
 
 
 // --------3. POST-endpoint för ansökningar --------
+// app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response): Promise<void> => {
+
 app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response): Promise<void> => {
   try {
     console.log('Form data received:', req.body);
@@ -199,7 +201,8 @@ app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response):
       attachments: [
         {
           filename: req.file.originalname,
-          path: req.file.path,
+          // path: req.file.path,
+          content: req.file.buffer
         },
       ],
     };

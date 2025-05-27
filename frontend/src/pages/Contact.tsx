@@ -24,7 +24,14 @@ const Contact = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch("https://www.resourcepoint.se/api/contact",{
+    const baseUrl =
+    typeof process !== "undefined" && process.env.REACT_APP_API_URL
+      ? process.env.REACT_APP_API_URL
+      : "https://examen-arbete-backend.onrender.com"; 
+
+       const API_URL =`${baseUrl}/api/contact`;
+
+      const response = await fetch(API_URL,{
       // const response = await fetch("http://localhost:5000/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
