@@ -15,12 +15,13 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// const corsOptions = {
-//     origin: 'https://www.resourcepoint.se',
-//     methods: ['GET','POST', 'OPTIONS']
-// };
 const corsOptions = {
-  origin: ['http://localhost:5176', 'http://localhost:3000','https://www.resourcepoint.se', 'https://resourcepoint.se'],
+  origin: [
+    'https://www.resourcepoint.se',
+    'https://resourcepoint.se',
+    'http://localhost:5173',
+    'http://localhost:3000'
+  ],
   methods: ['GET', 'POST', 'OPTIONS'],
 };
 

@@ -32,48 +32,96 @@ function App() {
   const handleClose = () => setShow(false);
 
   // Function to handle CV submit in the modal 
-  async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  // async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
+  //   e.preventDefault();
   
-      const formData = new FormData(e.target as HTMLFormElement);
-      const formEntries = [...formData.entries()];
-      console.log(formEntries);
+  //     const formData = new FormData(e.target as HTMLFormElement);
+  //     const formEntries = [...formData.entries()];
+  //     console.log(formEntries);
   
-      if (selectedPosition) {
-        formData.append('positionTitle', selectedPosition);
-      }
-      console.log("Selected Position:", selectedPosition);
+  //     if (selectedPosition) {
+  //       formData.append('positionTitle', selectedPosition);
+  //     }
+  //     console.log("Selected Position:", selectedPosition);
   
-      const API_URL = typeof process !== 'undefined' && process.env.REACT_APP_API_URL
-      ? process.env.REACT_APP_API_URL
-      // : "http://localhost:5000/api/apply";
-      :"https://www.resourcepoint.se/api/apply";
+  //     const API_URL = typeof process !== 'undefined' && process.env.REACT_APP_API_URL
+  //     ? process.env.REACT_APP_API_URL
+  //     // : "http://localhost:5000/api/apply";
+  //     :"https://www.resourcepoint.se/api/apply";
     
-      try {
-        const response = await fetch(API_URL, {
-          method: "POST",
-          body: formData,
-        });
+  //     try {
+  //       const response = await fetch(API_URL, {
+  //         method: "POST",
+  //         body: formData,
+  //       });
   
-        const result = await response.json();
-        if (response.ok) {
-          // alert("Application submitted successfully!");
-           setStatusMessage({ success: true, text: "✅ Ansökan skickades!" });
-        } else {
-          // alert("Something went wrong: " + result.message);
-          setStatusMessage({ success: false, text: `❌ Fel: ${result.message}` });
-        }
-      } catch (err) {
-        console.error(err);
-        if (err instanceof Error) {
-          alert("Failed to submit application: " + err.message);
-        } else {
-          alert("An unknown error occurred.");
-        }
-      }
-    }
-  
+  //       const result = await response.json();
+  //       if (response.ok) {
+  //         // alert("Application submitted successfully!");
+  //          setStatusMessage({ success: true, text: "✅ Ansökan skickades!" });
+  //       } else {
+  //         // alert("Something went wrong: " + result.message);
+  //         setStatusMessage({ success: false, text: `❌ Fel: ${result.message}` });
+  //       }
+  //     } catch (err) {
+  //       console.error(err);
+  //       if (err instanceof Error) {
+  //         alert("Failed to submit application: " + err.message);
+  //       } else {
+  //         alert("An unknown error occurred.");
+  //       }
+  //     }
+  //   }
+async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
 
+  const formData = new FormData(e.target as HTMLFormElement);
+
+  if (selectedPosition) {
+    formData.append("positionTitle", selectedPosition);
+  }
+
+  console.log("Formulärdata:", [...formData.entries()]);
+  console.log("Vald position:", selectedPosition);
+
+  const baseUrl =
+    typeof process !== "undefined" && process.env.REACT_APP_API_URL
+      ? process.env.REACT_APP_API_URL
+      : "https://examen-arbete-backend.onrender.com"; 
+
+  const API_URL =`${baseUrl}/api/apply`;
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      setStatusMessage({ success: true, text: "✅ Ansökan skickades!" });
+    } else {
+      setStatusMessage({
+        success: false,
+        text: `❌ Fel: ${result.message || "Ett fel uppstod vid inskickning."}`,
+      });
+    }
+  } catch (err) {
+    console.error("Fel vid fetch:", err);
+    setStatusMessage({
+      success: false,
+      text:
+        err instanceof Error
+          ? `❌ Ett fel uppstod: ${err.message}`
+          : "❌ Okänt fel vid inskickning.",
+    });
+  }
+}
+
+
+   
+  
   return (
     <Router>
       <Header />
