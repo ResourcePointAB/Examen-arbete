@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 5000;
 //     methods: ['GET','POST', 'OPTIONS']
 // };
 const corsOptions = {
-  origin: ['https://www.resourcepoint.se', 'https://resourcepoint.se'],
+  origin: ['http://localhost:5176', 'http://localhost:3000','https://www.resourcepoint.se', 'https://resourcepoint.se'],
   methods: ['GET', 'POST', 'OPTIONS'],
 };
 
