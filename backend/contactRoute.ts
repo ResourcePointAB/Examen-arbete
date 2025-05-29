@@ -7,8 +7,8 @@ dotenv.config();
 const router = express.Router();
 const corsOptions = {
     origin: '*',
-    methods: [],
-    allowedHeaders: [],
+    methods: ['POST','OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     exposedHeaders: [],
     credentials: true
 };
@@ -16,6 +16,7 @@ const corsOptions = {
 router.use(cors(corsOptions));
 
 router.post('/', async (req, res) => {
+  console.log('Req.body:', req.body);
   const { name, email, phone, subject, message } = req.body;
 
   // const transporter = nodemailer.createTransport({

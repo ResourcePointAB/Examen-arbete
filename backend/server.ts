@@ -20,6 +20,7 @@ const corsOptions = {
     'https://www.resourcepoint.se',
     'https://resourcepoint.se',
     'http://localhost:5173',
+    'http://localhost:5174',
     'http://localhost:3000'
   ],
   methods: ['GET', 'POST', 'OPTIONS'],
@@ -37,10 +38,10 @@ app.get('/', (req, res) => {
   res.send('Välkommen till servern!');
 });
 
-app.post('/api/contact', (req, res) => {
-  console.log('Meddelande mottaget:', req.body);
-  res.status(200).send('Meddelande mottaget!');
-});
+// app.post('/api/contact', (req, res) => {
+//   console.log('Meddelande mottaget:', req.body);
+//   res.status(200).send('Meddelande mottaget!');
+// });
 
 // -------- 1.1 Multer: Spara CV i uploads mappen i backend--------
 const uploadDir = path.join(__dirname, 'uploads');
@@ -137,27 +138,27 @@ app.post('/api/apply', upload.single('cv'), async (req: Request, res: Response):
 
     // --------4- Sparar användarens ansökningsdata i JSON-fil localt in backend-------
 
-    const dataPath = path.join(__dirname, 'applications.json');
+    // const dataPath = path.join(__dirname, 'applications.json');
 
-    let previousData: ApplicationData[] = [];
-    try {
-      if (fs.existsSync(dataPath)) {
-        const fileContent = fs.readFileSync(dataPath, 'utf-8').trim();
+    // let previousData: ApplicationData[] = [];
+    // try {
+    //   if (fs.existsSync(dataPath)) {
+    //     const fileContent = fs.readFileSync(dataPath, 'utf-8').trim();
     
-        if (fileContent) {
-          try {
-            previousData = JSON.parse(fileContent);
-          } catch (err) {
-            console.error('Error parsing JSON from file:', err);
-          }
-        }
-      }
+    //     if (fileContent) {
+    //       try {
+    //         previousData = JSON.parse(fileContent);
+    //       } catch (err) {
+    //         console.error('Error parsing JSON from file:', err);
+    //       }
+    //     }
+    //   }
 
-      previousData.push(application);
-      fs.writeFileSync(dataPath, JSON.stringify(previousData, null, 2));
-    } catch (err) {
-      console.error('Error while reading/writing the file:', err);
-    }
+    //   previousData.push(application);
+    //   fs.writeFileSync(dataPath, JSON.stringify(previousData, null, 2));
+    // } catch (err) {
+    //   console.error('Error while reading/writing the file:', err);
+    // }
 
     // --------4- Spara ansökan i databasen --------
     // const db = await dbPromise;
