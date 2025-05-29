@@ -27,8 +27,8 @@ const Contact = () => {
     const baseUrl =
     typeof process !== "undefined" && process.env.REACT_APP_API_URL
       ? process.env.REACT_APP_API_URL
-      : "http://localhost:5000"; 
-      // : "https://examen-arbete-backend.onrender.com"; 
+      // : "http://localhost:5000"; 
+      : "https://examen-arbete-backend.onrender.com"; 
 
        const API_URL =`${baseUrl}/api/contact`;
 
