@@ -93,7 +93,7 @@ export const pageContents :Page[]= [
         Var i framkant av ny innovation.
         Dina mål är individuella. Vi tror att affärsrådgivning också borde vara det, så vi hjälper ditt företag att blomstra i denna arbetsmiljö.
 
-        Fullstackutvecklare, IT - Tech-Gothenburg, Arbeta med moderna C#/Java, JavaScript-ramverk för att bygga användarvänliga gränssnitt.
+        Frontendutvecklare, IT - Tech-Gothenburg, Arbeta med moderna C#/Java, JavaScript-ramverk för att bygga användarvänliga gränssnitt.
         Backendutvecklare, IT - Tech-Gothenburg, Utveckla och underhåll serverlösningar med fokus på prestanda och säkerhet.
         Mjukvarutestare, IT - QA-Gothenburg, Testa och säkerställ kvaliteten på mjukvarulösningar genom automatiserade tester.
         Ansök nu
