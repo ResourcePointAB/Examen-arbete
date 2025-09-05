@@ -30,10 +30,10 @@ const insertPositionData = async () => {
       VALUES (?, ?, ?, ?)
     `);
 
-    //await stmt.run('Frontend Developer', 'Tech', 'Gothenburg', 'Work with modern JavaScript frameworks to build user-friendly interfaces.');
+    await stmt.run('Frontend Developer', 'Tech', 'Gothenburg', 'Work with modern JavaScript frameworks to build user-friendly interfaces.');
     await stmt.run('Backend Developer', 'Tech', 'Gothenburg', 'Develop and maintain server-side solutions with focus on performance and security.');
     await stmt.run('Software Tester', 'QA', 'Gothenburg', 'Test and ensure software quality through automated testing.');
-    await.stmt.run('Fullstack Developer', 'Tech', 'Gothenburg', 'C#/Java Fullstack developers with Cloud experience.');
+    //await.stmt.run('Fullstack Developer', 'Tech', 'Gothenburg', 'C#/Java Fullstack developers with Cloud experience.');
 
     console.log('Sample position data inserted.');
   } catch (err) {
