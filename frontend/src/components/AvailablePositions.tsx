@@ -85,8 +85,8 @@ type AvailablePositionsProps = {
 const hardcodedPositions = [
   { id: 1, titleKey: "frontendTitle", descKey: "frontendDesc", departmentKey: "Tech" },
   { id: 2, titleKey: "backendTitle", descKey: "backendDesc", departmentKey: "Tech" },
-  { id: 3, titleKey: "testerTitle", descKey: "testerDesc", departmentKey: "QA" },
-  { id: 4, titleKey: "fullStackTitle", descKey: "fullstackDesc". departmentKey: "Teck" }
+//  { id: 3, titleKey: "testerTitle", descKey: "testerDesc", departmentKey: "QA" },
+  { id: 3, titleKey: "fullStackTitle", descKey: "fullstackDesc". departmentKey: "Teck" }
 ];
 
 function AvailablePositions({ onApplyClick, className = "" }: AvailablePositionsProps) {
